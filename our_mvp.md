@@ -1,3 +1,3 @@
 # Our MVP
 
-Write our MVP here!
+Write our MVP here

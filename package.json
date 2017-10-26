@@ -1,0 +1,26 @@
+{
+  "name": "group-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs",
+    "build": "cd client && webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rauletxailarena/group-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rauletxailarena/group-project/issues"
+  },
+  "homepage": "https://github.com/rauletxailarena/group-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33",
+    "webpack": "^3.8.1"
+  }
+}

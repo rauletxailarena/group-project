@@ -244,11 +244,13 @@ module.exports = weatherRequestHelper
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+var hiddenApiKey = __webpack_require__(7)
 
 var locationIdHelper = {
   tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=",
-  apiKey: "6b1853c7-7088-4c1f-9011-3569a35cf00b",
+  apiKey: hiddenApiKey,
 
   getRequest: function(lat, lng, callback) {
     var url = this.tempUrl + this.apiKey
@@ -270,6 +272,17 @@ locationIdHelper.getRequest("60.4322", "-1.2992", function(data) {
 
 
 module.exports = locationIdHelper
+
+
+/***/ }),
+/* 6 */,
+/* 7 */
+/***/ (function(module, exports) {
+
+var locationIDApiKey = "6b1853c7-7088-4c1f-9011-3569a35cf00b"
+
+
+module.exports = locationIDApiKey
 
 
 /***/ })

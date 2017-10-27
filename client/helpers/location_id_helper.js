@@ -1,6 +1,8 @@
+var hiddenApiKey = require("./location_id_api_key.js")
+
 var locationIdHelper = {
   tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=",
-  apiKey: "6b1853c7-7088-4c1f-9011-3569a35cf00b",
+  apiKey: hiddenApiKey,
 
   getRequest: function(lat, lng, callback) {
     var url = this.tempUrl + this.apiKey

@@ -68,6 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var mapWrapper = __webpack_require__ (1)
+var postCodeRequestHelper = __webpack_require__ (2)
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
@@ -75,6 +76,14 @@ var mapWrapper = __webpack_require__ (1)
     var map = new mapWrapper(mapContainer,
       {lat: 51.5074, lng: -0.1278}, 5 );
     map.addClickEvent();
+
+    postCodeRequestHelper.getRequest("eh497sl", function(data){
+      console.log(data);
+    });
+    postCodeRequestHelper.getRequest("eh111hd", function(data) {
+      console.log(data);
+    });
+
   });
 
 
@@ -148,6 +157,50 @@ MapWrapper.prototype.moveMapToCurrentLocation = function (position) {
 }
 
 module.exports = MapWrapper
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var postCodeRequestHelper = {
+  temp_url: "http://api.postcodes.io/postcodes/",
+  getRequest: function (postcode, callback) {
+    var url = this.temp_url + postcode
+    console.log("url ", url);
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', url)
+
+    xhr.addEventListener('load', function () {
+      console.log(xhr);
+      var jsonString = xhr.responseText
+      var data = JSON.parse(jsonString)
+      callback(data)
+    })
+
+    xhr.send()
+  }
+  // postRequest: function (url, callback, payload) {
+  //   var xhr = new XMLHttpRequest()
+  //   xhr.open('POST', url)
+  //
+  //   xhr.addEventListener('load', function () {
+  //     if (xhr.status !== 200) return
+  //     var jsonString = xhr.responseText
+  //     var data = JSON.parse(jsonString)
+  //     callback(data)
+  //   })
+  //
+  //   xhr.setRequestHeader('Content-Type', 'application/json')
+  //
+  //   var jsonString = JSON.stringify(payload)
+  //
+  //   xhr.send(jsonString)
+  //
+  // }
+}
+
+module.exports = postCodeRequestHelper
 
 
 /***/ })

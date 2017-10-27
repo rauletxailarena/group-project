@@ -1,4 +1,3 @@
-node_modules
-private_folder
-package-lock.json
-another_folders
+node_modules/
+private_folder/
+.DS_Store

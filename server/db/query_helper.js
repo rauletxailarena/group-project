@@ -10,9 +10,12 @@ queryHelper.url = "mongodb://localhost:27017/local_information"
 
 // Example call: queryHelper.all('pubs', callback)
 queryHelper.all = function(theCollectionName, onQueryFinished){
+  console.log(Date.now(), 'MongoClient', "queryHelper", "all method on", theCollectionName);
   MongoClient.connect(this.url, function(err, db){
+    console.log(Date.now(), 'MongoClient', "queryHelper", "all", "connect method");
     var theCollection = db.collection(theCollectionName)
     theCollection.find().toArray(function(err, docs){
+      console.log(Date.now(), 'MongoClient', "queryHelper", "all", "connect", "find, array");
       onQueryFinished(docs)
     })
   })
@@ -20,12 +23,15 @@ queryHelper.all = function(theCollectionName, onQueryFinished){
 
 // Example call: queryHelper.save('pubs', pubJsonData, callback)
 queryHelper.save = function(theCollectionName, theJsonData, onQueryFinished){
+  console.log(Date.now(), 'MongoClient', "queryHelper", "save method on", theCollectionName);
   MongoClient.connect(this.url, function(err, db){
+    console.log(Date.now(), 'MongoClient', "queryHelper", "save", "connect method");
     if (err) return          // Optional!
     var theCollection = db.collection(theCollectionName)
     theCollection.insert(theJsonData)
     // Get the list again, since another user might have added to it
     theCollection.find().toArray(function(err, docs){
+      console.log(Date.now(), 'MongoClient', "queryHelper", "save", "connect", "find, array");
       onQueryFinished(docs)
     })
   })

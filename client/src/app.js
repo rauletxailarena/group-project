@@ -1,6 +1,7 @@
 var mapWrapper = require ('../helpers/mapWrapper')
 var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper.js')
 var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
+var buttonListener = require ('../helpers/make_submit_button_work.js')
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
@@ -16,10 +17,10 @@ var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
       console.log(data);
     });
 
+    buttonListener.addFunctionality();
+
     weatherRequestHelper.getRequest(3066, function(data) {
       console.log(data);
     })
-
-
 
   });

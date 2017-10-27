@@ -60,60 +60,17 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-var postCodeRequestHelper = {
-  temp_url: "http://api.postcodes.io/postcodes/",
-  getRequest: function (postcode, callback) {
-    var url = this.temp_url + postcode
-    console.log("url ", url);
-    var xhr = new XMLHttpRequest()
-    xhr.open('GET', url)
-
-    xhr.addEventListener('load', function () {
-      console.log(xhr);
-      var jsonString = xhr.responseText
-      var data = JSON.parse(jsonString)
-      callback(data)
-    })
-
-    xhr.send()
-  }
-  // postRequest: function (url, callback, payload) {
-  //   var xhr = new XMLHttpRequest()
-  //   xhr.open('POST', url)
-  //
-  //   xhr.addEventListener('load', function () {
-  //     if (xhr.status !== 200) return
-  //     var jsonString = xhr.responseText
-  //     var data = JSON.parse(jsonString)
-  //     callback(data)
-  //   })
-  //
-  //   xhr.setRequestHeader('Content-Type', 'application/json')
-  //
-  //   var jsonString = JSON.stringify(payload)
-  //
-  //   xhr.send(jsonString)
-  //
-  // }
-}
-
-module.exports = postCodeRequestHelper
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapWrapper = __webpack_require__ (2)
-var postCodeRequestHelper = __webpack_require__ (0)
-var weatherRequestHelper = __webpack_require__ (4)
+var mapWrapper = __webpack_require__ (1)
+var postCodeRequestHelper = __webpack_require__ (2)
+var weatherRequestHelper = __webpack_require__ (3)
+var buttonListener = __webpack_require__ (4)
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
@@ -129,17 +86,17 @@ var weatherRequestHelper = __webpack_require__ (4)
       console.log(data);
     });
 
+    buttonListener.addFunctionality();
+
     weatherRequestHelper.getRequest(3066, function(data) {
       console.log(data);
     })
-
-
 
   });
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports) {
 
 
@@ -211,8 +168,51 @@ module.exports = MapWrapper
 
 
 /***/ }),
-/* 3 */,
-/* 4 */
+/* 2 */
+/***/ (function(module, exports) {
+
+var postCodeRequestHelper = {
+  temp_url: "http://api.postcodes.io/postcodes/",
+  getRequest: function (postcode, callback) {
+    var url = this.temp_url + postcode
+    console.log("url ", url);
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', url)
+
+    xhr.addEventListener('load', function () {
+      console.log(xhr);
+      var jsonString = xhr.responseText
+      var data = JSON.parse(jsonString)
+      callback(data)
+    })
+
+    xhr.send()
+  }
+  // postRequest: function (url, callback, payload) {
+  //   var xhr = new XMLHttpRequest()
+  //   xhr.open('POST', url)
+  //
+  //   xhr.addEventListener('load', function () {
+  //     if (xhr.status !== 200) return
+  //     var jsonString = xhr.responseText
+  //     var data = JSON.parse(jsonString)
+  //     callback(data)
+  //   })
+  //
+  //   xhr.setRequestHeader('Content-Type', 'application/json')
+  //
+  //   var jsonString = JSON.stringify(payload)
+  //
+  //   xhr.send(jsonString)
+  //
+  // }
+}
+
+module.exports = postCodeRequestHelper
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 var weatherRequestHelper = {
@@ -239,6 +239,29 @@ var weatherRequestHelper = {
 
 
 module.exports = weatherRequestHelper
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var postCodeRequestHelper = __webpack_require__(2)
+
+var submitButton = {
+  addFunctionality: function() {
+    var button = document.getElementById("postcode-submit-button")
+    console.log(button)
+    var postcodeInput = document.getElementById("postcode-input")
+    button.addEventListener("click", function() {
+      var postcode = postcodeInput.value
+      postCodeRequestHelper.getRequest(postcode, function(data) {
+        console.log(data)
+      })
+    })
+  }
+}
+
+module.exports = submitButton
 
 
 /***/ })

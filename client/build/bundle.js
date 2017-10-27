@@ -69,9 +69,6 @@
 
 var mapWrapper = __webpack_require__ (1)
 
-
-
-
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
     console.log(mapContainer);

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha specs",
+    "test": "mocha ./client/src/models/specs/",
+    "start": "nodemon ./server/server.js",
     "build": "cd client && webpack -w"
   },
   "repository": {
@@ -20,7 +21,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongodb": "^2.2.33",
+    "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
     "webpack": "^3.8.1"
   }
 }

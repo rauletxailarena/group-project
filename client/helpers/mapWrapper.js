@@ -25,7 +25,7 @@ MapWrapper.prototype.addMarker = function (coords, infoWindowContent) {
     var infoWindow = new google.maps.InfoWindow({
       content: infoWindowContent
     });
-    // our marker has an addListener method we can use instead of google.maps.event.addListener    
+    // our marker has an addListener method we can use instead of google.maps.event.addListener
     marker.addListener('click', function () {
       infoWindow.open(marker.map, marker);
     })
@@ -60,4 +60,3 @@ MapWrapper.prototype.moveMapToCurrentLocation = function (position) {
   this.googleMap.setCenter(center);
   this.addMarker(center);
 }
-

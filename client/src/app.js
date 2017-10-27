@@ -1,5 +1,6 @@
 var mapWrapper = require ('../helpers/mapWrapper')
-var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper')
+var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper.js')
+var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
@@ -14,5 +15,11 @@ var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper')
     postCodeRequestHelper.getRequest("eh111hd", function(data) {
       console.log(data);
     });
+
+    weatherRequestHelper.getRequest(3066, function(data) {
+      console.log(data);
+    })
+
+
 
   });

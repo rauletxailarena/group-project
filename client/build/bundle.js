@@ -113,6 +113,7 @@ module.exports = postCodeRequestHelper
 
 var mapWrapper = __webpack_require__ (2)
 var postCodeRequestHelper = __webpack_require__ (0)
+var weatherRequestHelper = __webpack_require__ (4)
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
@@ -127,6 +128,12 @@ var postCodeRequestHelper = __webpack_require__ (0)
     postCodeRequestHelper.getRequest("eh111hd", function(data) {
       console.log(data);
     });
+
+    weatherRequestHelper.getRequest(3066, function(data) {
+      console.log(data);
+    })
+
+
 
   });
 
@@ -201,6 +208,37 @@ MapWrapper.prototype.moveMapToCurrentLocation = function (position) {
 }
 
 module.exports = MapWrapper
+
+
+/***/ }),
+/* 3 */,
+/* 4 */
+/***/ (function(module, exports) {
+
+var weatherRequestHelper = {
+  tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/",
+  timeSpan: "?res=3hourly&key=",
+  apiKey: "6b1853c7-7088-4c1f-9011-3569a35cf00b",
+
+  getRequest: function(locationId, callback) {
+     var url = this.tempUrl + locationId + this.timeSpan + this.apiKey
+     console.log("weather url:", url);
+     var xhr = new XMLHttpRequest()
+     xhr.open("GET", url)
+
+     xhr.addEventListener("load", function() {
+       console.log(xhr)
+       var jsonString = xhr.responseText
+       var data = JSON.parse(jsonString)
+       callback(data)
+     })
+     xhr.send()
+  }
+}
+
+
+
+module.exports = weatherRequestHelper
 
 
 /***/ })

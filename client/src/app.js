@@ -1,6 +1,7 @@
 var mapWrapper = require ('../helpers/mapWrapper')
 var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper.js')
 var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
+var locationIdHelper = require ('../helpers/location_id_helper.js')
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");

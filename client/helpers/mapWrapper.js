@@ -1,3 +1,5 @@
+
+
 var MapWrapper = function (container, coords, zoom) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
@@ -60,3 +62,5 @@ MapWrapper.prototype.moveMapToCurrentLocation = function (position) {
   this.googleMap.setCenter(center);
   this.addMarker(center);
 }
+
+module.exports = MapWrapper

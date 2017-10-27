@@ -67,8 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-// Dummy app
-
+throw new Error("Module parse failed: Unexpected token (5:39)\nYou may need an appropriate loader to handle this file type.\n| \n| var mapContainer = document.getElementById(\"map\");\n| var map = new mapWrapper(mapContainer ,var center = {\n|   lat: 51.5074, lng: -0.1278}, 5 );\n| ");
 
 /***/ })
 /******/ ]);

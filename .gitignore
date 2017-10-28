@@ -1,3 +1,12 @@
 node_modules/
 private_folder/
 .DS_Store
+<<<<<<< HEAD
+client/build/bundle.js
+client/build/bundle.js.map
+client/helpers/weather_api_key.js
+=======
+location_id_api_key/
+client/build/bundle.js
+client/build/bundle.js.map
+>>>>>>> develop

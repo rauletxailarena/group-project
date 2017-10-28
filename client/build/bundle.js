@@ -68,8 +68,7 @@
 /* 1 */
 /***/ (function(module, exports) {
 
-// Dummy app
-
+throw new Error("Module parse failed: Unexpected token (4:2)\nYou may need an appropriate loader to handle this file type.\n| var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper.js')\n| var weatherRequestHelper = require ('../helpers/weather_request_helper.js')\n| <<<<<<< HEAD\n| var buttonListener = require('../helpers/make_submit_button_work.js')\n| =======");
 
 /***/ })
 /******/ ]);

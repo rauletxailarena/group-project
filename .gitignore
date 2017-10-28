@@ -2,4 +2,5 @@ node_modules/
 private_folder/
 .DS_Store
 client/build/bundle.js
+client/build/bundle.js.map
 client/helpers/weather_api_key.js

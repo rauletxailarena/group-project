@@ -4,7 +4,7 @@ var restaurantRequestHelper = require("./restaurant_request_helper")
 var pubDataHelper = require("./pub_data/pubDataHelper.js")
 
 var submitButton = {
-  addFunctionality: function() {
+  addFunctionality: function(callback) {
     var button = document.getElementById("postcode-submit-button")
     var postcodeInput = document.getElementById("postcode-input")
     button.addEventListener("click", function() {
@@ -19,6 +19,8 @@ var submitButton = {
         var pubList = pubDataHelper.getPubsByCoords(data.result.latitude, data.result.longitude, 0.01)
 
         console.log("Pub list: ", pubList)
+
+        callback(pubList)
 
       })
 

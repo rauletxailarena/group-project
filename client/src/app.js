@@ -11,22 +11,27 @@ window.addEventListener('load', function(){
   var mapContainer = document.getElementById("map");
   console.log(mapContainer);
   var map = new mapWrapper(mapContainer,
-    {lat: 51.5074, lng: -0.1278}, 5 );
+    {lat: 55.939014, lng: -3.218400}, 15 );
   map.addClickEvent();
 
 
-  postCodeRequestHelper.getRequest("eh497sl", function(data){
-    console.log(data);
+  buttonListener.addFunctionality(function(pubList) {
+    console.log("publist callback: ", pubList);
+    for(var pub of pubList) {
+      var coordinates = {
+        lat: parseInt(pub.latitude),
+        lng: parseInt(pub.longitude)
+      }
+      var lat = parseInt(pub.latitude)
+      console.log("lat: ", pub.latitude);
+      var lng = parseInt(pub.longitude)
+      console.log("lng: ", pub.longitude);
+      map.addMarker(coordinates)
+    }
   });
-  postCodeRequestHelper.getRequest("eh111hd", function(data) {
-    console.log(data);
-  });
-
-
-  buttonListener.addFunctionality();
 
 
 
-  
+
 
 });

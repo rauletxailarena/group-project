@@ -5,7 +5,7 @@ var weatherRequestHelper = {
   + "&output=json&query=" ,
 
 
-  getCurrentWeatherById: function(postcode, callback) {
+  getCurrentWeatherByPostCode: function(postcode, callback) {
      var url = this.tempUrl + postcode
      console.log("weather url:", url);
      var xhr = new XMLHttpRequest()

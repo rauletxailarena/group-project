@@ -70,29 +70,28 @@
 var mapWrapper = __webpack_require__ (1)
 var postCodeRequestHelper = __webpack_require__ (2)
 var weatherRequestHelper = __webpack_require__ (3)
-var locationIdHelper = __webpack_require__ (4)
-
-  window.addEventListener('load', function(){
-    var mapContainer = document.getElementById("map");
-    console.log(mapContainer);
-    var map = new mapWrapper(mapContainer,
-      {lat: 51.5074, lng: -0.1278}, 5 );
-    map.addClickEvent();
-
-    postCodeRequestHelper.getRequest("eh497sl", function(data){
-      console.log(data);
-    });
-    postCodeRequestHelper.getRequest("eh111hd", function(data) {
-      console.log(data);
-    });
-
-    weatherRequestHelper.getRequest(3066, function(data) {
-      console.log(data);
-    })
+var locationIdHelper = __webpack_require__(4)
+var buttonListener = __webpack_require__(6)
 
 
+window.addEventListener('load', function(){
+  var mapContainer = document.getElementById("map");
+  console.log(mapContainer);
+  var map = new mapWrapper(mapContainer,
+    {lat: 51.5074, lng: -0.1278}, 5 );
+  map.addClickEvent();
 
+  postCodeRequestHelper.getRequest("eh497sl", function(data){
+    console.log(data);
   });
+  postCodeRequestHelper.getRequest("eh111hd", function(data) {
+    console.log(data);
+  });
+
+  buttonListener.addFunctionality();
+
+
+});
 
 
 /***/ }),
@@ -213,29 +212,71 @@ module.exports = postCodeRequestHelper
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+var hiddenApiKey = __webpack_require__(5)
 
 var weatherRequestHelper = {
   tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/",
   timeSpan: "?res=3hourly&key=",
-  apiKey: "6b1853c7-7088-4c1f-9011-3569a35cf00b",
 
-  getRequest: function(locationId, callback) {
-     var url = this.tempUrl + locationId + this.timeSpan + this.apiKey
+
+  getCurrentWeatherById: function(locationId, callback) {
+     var url = this.tempUrl + locationId + this.timeSpan + hiddenApiKey;
      console.log("weather url:", url);
      var xhr = new XMLHttpRequest()
      xhr.open("GET", url)
 
      xhr.addEventListener("load", function() {
        console.log(xhr)
+       var weatherTypeCodes = {
+         NA: "Not Available",
+         0: "Clear night",
+         1: "Sunny day",
+         2: "Partly cloudy (night)",
+         3: "Partly cloudy (day)",
+         4: "Not used",
+         5: "Mist",
+         6: "Fog",
+         7: "Cloudy",
+         8: "Overcast",
+         9: "Light rain shower (night)",
+         10: "Light rain shower (day)",
+         11: "Drizzle",
+         12: "Light rain",
+         13: "Heavy rain shower (night)",
+         14: "Heavy rain shower (day)",
+         15: "Heavy rain",
+         16: "Sleet shower (night)",
+         17: "Sleet shower (day)",
+         18: "Sleet",
+         19: "Hail shower (night)",
+         20: "Hail shower (day)",
+         21: "Hail",
+         22: "Light snow shower (night)",
+         23: "Light snow shower (day)",
+         24: "Light snow",
+         25: "Heavy snow shower (night)",
+         26: "Heavy snow shower (day)",
+         27: "Heavy snow",
+         28: "Thunder shower (night)",
+         29: "Thunder shower (day)",
+         30: "Thunder"
+       }
        var jsonString = xhr.responseText
        var data = JSON.parse(jsonString)
-       callback(data)
+       var weatherTypeCode = data.SiteRep.DV.Location.Period[0].Rep[0].W;
+
+       var weatherCode = weatherTypeCodes[weatherTypeCode];
+       callback(weatherCode)
      })
      xhr.send()
   }
 }
 
+  weatherRequestHelper.getCurrentWeatherById(3066, function(data) {
+    console.log("Weather request helper called: ",data);
+  })
 
 
 module.exports = weatherRequestHelper
@@ -251,21 +292,28 @@ var locationIdHelper = {
   tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=",
   apiKey: hiddenApiKey,
 
-  getRequest: function(lat, lng, callback) {
+  getCityIdByName: function(name, callback) {
     var url = this.tempUrl + this.apiKey
     var xhr = new XMLHttpRequest()
     xhr.open("GET", url)
 
-    xhr.addEventListener("load", function(lat, lng) {
+    xhr.addEventListener("load", function() {
       var jsonString = xhr.responseText
       var data = JSON.parse(jsonString)
-      callback(data)
+      var listOflocations = data.Locations.Location;
+      var targetCity;
+      for (var city of listOflocations){
+        if (city.name === name){
+          targetCity = city;
+        }
+      }
+      callback(targetCity.id)
     })
     xhr.send()
   }
 }
 
-locationIdHelper.getRequest("60.4322", "-1.2992", function(data) {
+locationIdHelper.getCityIdByName("Glasgow", function(data) {
   console.log("Data: ", data)
 })
 
@@ -281,6 +329,29 @@ var locationIDApiKey = "6b1853c7-7088-4c1f-9011-3569a35cf00b"
 
 
 module.exports = locationIDApiKey
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var postCodeRequestHelper = __webpack_require__(2)
+
+var submitButton = {
+  addFunctionality: function() {
+    var button = document.getElementById("postcode-submit-button")
+    console.log(button)
+    var postcodeInput = document.getElementById("postcode-input")
+    button.addEventListener("click", function() {
+      var postcode = postcodeInput.value
+      postCodeRequestHelper.getRequest(postcode, function(data) {
+        console.log(data)
+      })
+    })
+  }
+}
+
+module.exports = submitButton
 
 
 /***/ })

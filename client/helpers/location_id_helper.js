@@ -4,21 +4,28 @@ var locationIdHelper = {
   tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=",
   apiKey: hiddenApiKey,
 
-  getRequest: function(lat, lng, callback) {
+  getCityIdByName: function(name, callback) {
     var url = this.tempUrl + this.apiKey
     var xhr = new XMLHttpRequest()
     xhr.open("GET", url)
 
-    xhr.addEventListener("load", function(lat, lng) {
+    xhr.addEventListener("load", function() {
       var jsonString = xhr.responseText
       var data = JSON.parse(jsonString)
-      callback(data)
+      var listOflocations = data.Locations.Location;
+      var targetCity;
+      for (var city of listOflocations){
+        if (city.name === name){
+          targetCity = city;
+        }
+      }
+      callback(targetCity.id)
     })
     xhr.send()
   }
 }
 
-locationIdHelper.getRequest("60.4322", "-1.2992", function(data) {
+locationIdHelper.getCityIdByName("Glasgow", function(data) {
   console.log("Data: ", data)
 })
 

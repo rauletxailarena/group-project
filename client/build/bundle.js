@@ -60,17 +60,61 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+var postCodeRequestHelper = {
+  temp_url: "http://api.postcodes.io/postcodes/",
+  getRequest: function (postcode, callback) {
+    var url = this.temp_url + postcode
+    console.log("url ", url);
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', url)
+
+    xhr.addEventListener('load', function () {
+      console.log(xhr);
+      var jsonString = xhr.responseText
+      var data = JSON.parse(jsonString)
+      callback(data)
+    })
+
+    xhr.send()
+  }
+  // postRequest: function (url, callback, payload) {
+  //   var xhr = new XMLHttpRequest()
+  //   xhr.open('POST', url)
+  //
+  //   xhr.addEventListener('load', function () {
+  //     if (xhr.status !== 200) return
+  //     var jsonString = xhr.responseText
+  //     var data = JSON.parse(jsonString)
+  //     callback(data)
+  //   })
+  //
+  //   xhr.setRequestHeader('Content-Type', 'application/json')
+  //
+  //   var jsonString = JSON.stringify(payload)
+  //
+  //   xhr.send(jsonString)
+  //
+  // }
+}
+
+module.exports = postCodeRequestHelper
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapWrapper = __webpack_require__ (1)
-var postCodeRequestHelper = __webpack_require__ (2)
+var mapWrapper = __webpack_require__ (2)
+var postCodeRequestHelper = __webpack_require__ (0)
 var weatherRequestHelper = __webpack_require__ (3)
-var buttonListener = __webpack_require__(6)
+var buttonListener = __webpack_require__(5)
 
 
 window.addEventListener('load', function(){
@@ -96,7 +140,7 @@ window.addEventListener('load', function(){
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 
@@ -168,54 +212,10 @@ module.exports = MapWrapper
 
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-var postCodeRequestHelper = {
-  temp_url: "http://api.postcodes.io/postcodes/",
-  getRequest: function (postcode, callback) {
-    var url = this.temp_url + postcode
-    console.log("url ", url);
-    var xhr = new XMLHttpRequest()
-    xhr.open('GET', url)
-
-    xhr.addEventListener('load', function () {
-      console.log(xhr);
-      var jsonString = xhr.responseText
-      var data = JSON.parse(jsonString)
-      callback(data)
-    })
-
-    xhr.send()
-  }
-  // postRequest: function (url, callback, payload) {
-  //   var xhr = new XMLHttpRequest()
-  //   xhr.open('POST', url)
-  //
-  //   xhr.addEventListener('load', function () {
-  //     if (xhr.status !== 200) return
-  //     var jsonString = xhr.responseText
-  //     var data = JSON.parse(jsonString)
-  //     callback(data)
-  //   })
-  //
-  //   xhr.setRequestHeader('Content-Type', 'application/json')
-  //
-  //   var jsonString = JSON.stringify(payload)
-  //
-  //   xhr.send(jsonString)
-  //
-  // }
-}
-
-module.exports = postCodeRequestHelper
-
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hiddenApiKey = __webpack_require__(7)
+var hiddenApiKey = __webpack_require__(4)
 
 var weatherRequestHelper = {
   tempUrl: "http://www.myweather2.com/developer/forecast.ashx?uac=" + hiddenApiKey
@@ -247,12 +247,20 @@ module.exports = weatherRequestHelper
 
 
 /***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 4 */
+/***/ (function(module, exports) {
+
+var weatherIdKey = "AoCprO4kgY";
+
+
+module.exports = weatherIdKey;
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var postCodeRequestHelper = __webpack_require__(2)
+var postCodeRequestHelper = __webpack_require__(0)
 
 var submitButton = {
   addFunctionality: function() {
@@ -268,16 +276,6 @@ var submitButton = {
 }
 
 module.exports = submitButton
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-var weatherIdKey = "AoCprO4kgY";
-
-
-module.exports = weatherIdKey;
 
 
 /***/ })

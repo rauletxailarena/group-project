@@ -58,7 +58,7 @@ var weatherRequestHelper = {
   }
 }
 
-  weatherRequestHelper.getCurrentWeatherById(3066, function(data) {
+  weatherRequestHelper.getCurrentWeatherById(352993, function(data) {
     console.log("Weather request helper called: ",data);
   })
 

@@ -21,5 +21,14 @@ window.addEventListener('load', function(){
 
   buttonListener.addFunctionality();
 
+  locationIdHelper.getCityIdByName("Glasgow", function(data){
+    var cityId = data
+    console.log("city id", data);
+    weatherRequestHelper.getCurrentWeatherById(cityId, function(weatherData){
+      console.log(weatherData);
+    })
+  })
+
+
 
 });

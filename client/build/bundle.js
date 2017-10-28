@@ -90,6 +90,15 @@ window.addEventListener('load', function(){
 
   buttonListener.addFunctionality();
 
+  locationIdHelper.getCityIdByName("Glasgow", function(data){
+    var cityId = data
+    console.log("city id", data);
+    weatherRequestHelper.getCurrentWeatherById(cityId, function(weatherData){
+      console.log(weatherData);
+    })
+  })
+
+
 
 });
 
@@ -274,7 +283,7 @@ var weatherRequestHelper = {
   }
 }
 
-  weatherRequestHelper.getCurrentWeatherById(3066, function(data) {
+  weatherRequestHelper.getCurrentWeatherById(352993, function(data) {
     console.log("Weather request helper called: ",data);
   })
 

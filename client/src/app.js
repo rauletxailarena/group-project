@@ -12,18 +12,20 @@ window.addEventListener('load', function(){
   map.addClickEvent();
 
 
-  buttonListener.addFunctionality(function(pubList) {
+  buttonListener.addFunctionality(function(pubList, data) {
+    var centerLatitude = parseFloat(data.result.latitude);
+    var centerLongitude = parseFloat(data.result.longitude);
+    var center = {lat: centerLatitude, lng: centerLongitude};
+    console.log("Coordinates to center", center);
+    map.moveMapToCurrentLocation(center);
+
     console.log("publist callback: ", pubList);
     for(var pub of pubList) {
       var coordinates = {
-        lat: parseInt(pub.latitude),
-        lng: parseInt(pub.longitude)
+        lat: parseFloat(pub.latitude),
+        lng: parseFloat(pub.longitude)
       }
-      var lat = parseInt(pub.latitude)
-      console.log("lat: ", pub.latitude);
-      var lng = parseInt(pub.longitude)
-      console.log("lng: ", pub.longitude);
-      map.addMarker(coordinates)
+      map.addMarker(coordinates);
     }
   });
 

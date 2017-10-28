@@ -10,7 +10,6 @@ var submitButton = {
     button.addEventListener("click", function() {
       var postcode = postcodeInput.value
       postCodeRequestHelper.getRequest(postcode, function(data) {
-        console.log("City by postcode", data.result)
 
         restaurantRequestHelper.getRestaurantsByCoords(data.result.latitude, data.result.longitude, function(data) {
           console.log("restaurant info:", data)
@@ -20,7 +19,7 @@ var submitButton = {
 
         console.log("Pub list: ", pubList)
 
-        callback(pubList)
+        callback(pubList, data)
 
       })
 

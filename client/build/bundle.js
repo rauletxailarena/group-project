@@ -67,17 +67,12 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 var mapWrapper = __webpack_require__ (1)
 var postCodeRequestHelper = __webpack_require__ (2)
 var weatherRequestHelper = __webpack_require__ (3)
-var buttonListener = __webpack_require__ (4)
-=======
-var mapWrapper = __webpack_require__ (2)
-var postCodeRequestHelper = __webpack_require__ (0)
-var weatherRequestHelper = __webpack_require__ (4)
-var locationIdHelper = __webpack_require__ (5)
->>>>>>> 2cb6674a0dd127528721dd823c380f1add962178
+var locationIdHelper = __webpack_require__(4)
+var buttonListener = __webpack_require__(6)
+
 
   window.addEventListener('load', function(){
     var mapContainer = document.getElementById("map");
@@ -249,32 +244,10 @@ module.exports = weatherRequestHelper
 
 
 /***/ }),
-<<<<<<< HEAD
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var postCodeRequestHelper = __webpack_require__(2)
-
-var submitButton = {
-  addFunctionality: function() {
-    var button = document.getElementById("postcode-submit-button")
-    console.log(button)
-    var postcodeInput = document.getElementById("postcode-input")
-    button.addEventListener("click", function() {
-      var postcode = postcodeInput.value
-      postCodeRequestHelper.getRequest(postcode, function(data) {
-        console.log(data)
-      })
-    })
-  }
-}
-
-module.exports = submitButton
-=======
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var hiddenApiKey = __webpack_require__(7)
+var hiddenApiKey = __webpack_require__(5)
 
 var locationIdHelper = {
   tempUrl: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=",
@@ -294,7 +267,7 @@ var locationIdHelper = {
   }
 }
 
-locationIdHelper.getRequest("60.4322", "-1.2992", function(data) {
+locationIdHelper.getRequest(null,null, function(data) {
   console.log("Data: ", data)
 })
 
@@ -303,15 +276,36 @@ module.exports = locationIdHelper
 
 
 /***/ }),
-/* 6 */,
-/* 7 */
+/* 5 */
 /***/ (function(module, exports) {
 
-var locationIDApiKey = "6b1853c7-7088-4c1f-9011-3569a35cf00b"
+var locationIDApiKey = "6b1853c7-7088-4c1f-9011-3569a35cf00b";
 
 
 module.exports = locationIDApiKey
->>>>>>> 2cb6674a0dd127528721dd823c380f1add962178
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var postCodeRequestHelper = __webpack_require__(2)
+
+var submitButton = {
+  addFunctionality: function() {
+    var button = document.getElementById("postcode-submit-button")
+    console.log(button)
+    var postcodeInput = document.getElementById("postcode-input")
+    button.addEventListener("click", function() {
+      var postcode = postcodeInput.value
+      postCodeRequestHelper.getRequest(postcode, function(data) {
+        console.log(data)
+      })
+    })
+  }
+}
+
+module.exports = submitButton
 
 
 /***/ })

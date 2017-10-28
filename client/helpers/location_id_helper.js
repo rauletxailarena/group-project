@@ -18,7 +18,7 @@ var locationIdHelper = {
   }
 }
 
-locationIdHelper.getRequest("60.4322", "-1.2992", function(data) {
+locationIdHelper.getRequest(null,null, function(data) {
   console.log("Data: ", data)
 })
 

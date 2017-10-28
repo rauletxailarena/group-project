@@ -1,7 +1,7 @@
-var postCodeRequestHelper = require("./postCodeRequestHelper")
+var postCodeRequestHelper = require("./post_code_request_helper")
 var weatherRequestHelper = require("./weather_request_helper")
 var restaurantRequestHelper = require("./restaurant_request_helper")
-var pubDataHelper = require("./pub_data/pubDataHelper.js")
+var pubDataHelper = require("./pub_data/pub_data_helper.js")
 
 var submitButton = {
   addFunctionality: function(callback) {

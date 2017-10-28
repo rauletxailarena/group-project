@@ -1,5 +1,5 @@
-var mapWrapper = require ('../helpers/mapWrapper')
-var postCodeRequestHelper = require ('../helpers/postCodeRequestHelper.js')
+var mapWrapper = require ('../helpers/map_wrapper')
+var postCodeRequestHelper = require ('../helpers/post_code_request_helper.js')
 var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
 var buttonListener = require('../helpers/make_submit_button_work.js')
 var restaurantRequestHelper = require('../helpers/restaurant_request_helper.js')

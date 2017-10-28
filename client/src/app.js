@@ -4,9 +4,6 @@ var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
 var buttonListener = require('../helpers/make_submit_button_work.js')
 var restaurantRequestHelper = require('../helpers/restaurant_request_helper.js')
 
-
-
-
 window.addEventListener('load', function(){
   var mapContainer = document.getElementById("map");
   console.log(mapContainer);

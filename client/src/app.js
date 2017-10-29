@@ -6,11 +6,6 @@ var restaurantRequestHelper = require('../helpers/restaurant_request_helper.js')
 var makeWelcomeButtonWork = require('../helpers/make_welcome_button_work.js')
 
 window.addEventListener('load', function(){
-//   var mapContainer = document.getElementById("map");
-//   var map = new mapWrapper(mapContainer,
-//     {lat: 55.939014, lng: -3.218400}, 15 );
-//   map.addClickEvent();
-
 
   makeWelcomeButtonWork();
 

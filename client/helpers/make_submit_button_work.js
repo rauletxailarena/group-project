@@ -7,7 +7,7 @@ var displayRestaurants = require("../src/views/display_restaurants.js")
 var displayPubs = require("../src/views/display_pubs.js")
 
 var submitButton = {
-  addFunctionality: function(callback) {
+  addFunctionality: function() {
     var button = document.getElementById("postcode-submit-button")
     var postcodeInput = document.getElementById("postcode-input")
     button.addEventListener("click", function() {
@@ -23,7 +23,6 @@ var submitButton = {
 
         console.log("Pub list: ", pubList)
         displayPubs.render(pubList)
-        callback(pubList, data)
 
       })
 

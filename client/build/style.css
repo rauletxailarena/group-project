@@ -2,8 +2,15 @@ html{
   background-color: #f8f6ee;
 }
 #map{
-  height: 400px;
-  width: 400px;
+  height: 250px;
+  width: 500px;
+  margin: 0px 50px 0px 50px;
+}
+
+#weather-info-container{
+  height: 300px;
+  width: 300px;
+  margin: 0px 50px 0px 50px;
 }
 
 #welcome-input-button {
@@ -52,7 +59,7 @@ html{
 
 #header-wrapper{
   justify-content: center;
-  margin: 20px;
+  /*margin: 20px;*/
   text-align: center;
   font-size: 3.5em;
   font-family: 'Sedgwick Ave Display', cursive;
@@ -79,5 +86,11 @@ html{
   height: 10%;
   position: absolute;
   align-items: center;
+  justify-content: center;
+}
+
+#map-and-weather{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
 }

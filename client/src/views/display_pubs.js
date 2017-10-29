@@ -9,18 +9,20 @@ var displayPubs = {
   },
 
   render: function(pubs) {
-
+    this.resetRender()
     var pubContainer = document.getElementById("pubs-info-container")
     var title = document.createElement("h2")
     title.textContent = "Pubs info:"
     pubContainer.appendChild(title)
 
-
-
-
     pubs.forEach(function(pub) {
       this.renderPub(pub)
     }.bind(this))
+  },
+
+  resetRender: function(){
+    var pubContainer = document.getElementById("pubs-info-container")
+    pubContainer.innerHTML = ""
   }
 }
 

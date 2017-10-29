@@ -1,5 +1,6 @@
 var display_weather = {
   render : function(weatherObject){
+    this.resetRender()
     var weatherContainer = document.getElementById("weather-info-container");
     var weatherText = weatherObject.weather_text;
     var weatherTemp = weatherObject.temp;
@@ -18,6 +19,10 @@ var display_weather = {
     weatherContainer.appendChild(textP)
     weatherContainer.appendChild(tempP)
     weatherContainer.appendChild(windP)
+  },
+  resetRender: function(){
+    var weatherContainer = document.getElementById("weather-info-container")
+    weatherContainer.innerHTML = ""
   }
 }
 

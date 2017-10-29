@@ -2,12 +2,12 @@ var postCodeRequestHelper = {
   temp_url: "http://api.postcodes.io/postcodes/",
   getRequest: function (postcode, callback) {
     var url = this.temp_url + postcode
-    console.log("url ", url);
+    // console.log("url ", url);
     var xhr = new XMLHttpRequest()
     xhr.open('GET', url)
 
     xhr.addEventListener('load', function () {
-      console.log(xhr);
+      // console.log(xhr);
       var jsonString = xhr.responseText
       var data = JSON.parse(jsonString)
       callback(data)

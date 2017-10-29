@@ -7,12 +7,12 @@ var weatherRequestHelper = {
 
   getCurrentWeatherByPostCode: function(postcode, callback) {
      var url = this.tempUrl + postcode
-     console.log("weather url:", url);
+    //  console.log("weather url:", url);
      var xhr = new XMLHttpRequest()
      xhr.open("GET", url)
 
      xhr.addEventListener("load", function() {
-       console.log(xhr)
+      //  console.log(xhr)
        var jsonString = xhr.responseText
        var data = JSON.parse(jsonString)
        callback(data.weather.curren_weather[0])

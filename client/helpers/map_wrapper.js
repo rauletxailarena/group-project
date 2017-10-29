@@ -58,7 +58,7 @@ MapWrapper.prototype.moveMapToCurrentLocation = function (position) {
   // console.log(this);
   var coords = { lat: position.lat, lng: position.lng };
   var latLng = new google.maps.LatLng(coords.lat, coords.lng);
-  console.log("Trying to center map:", latLng);
+  // console.log("Trying to center map:", latLng);
   this.googleMap.setCenter({lat: position.lat, lng: position.lng});
 }
 

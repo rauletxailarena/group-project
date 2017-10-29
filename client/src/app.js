@@ -6,7 +6,7 @@ var restaurantRequestHelper = require('../helpers/restaurant_request_helper.js')
 
 window.addEventListener('load', function(){
   var mapContainer = document.getElementById("map");
-  console.log(mapContainer);
+  // console.log(mapContainer);
   var map = new mapWrapper(mapContainer,
     {lat: 55.939014, lng: -3.218400}, 15 );
   map.addClickEvent();
@@ -16,7 +16,7 @@ window.addEventListener('load', function(){
     var centerLatitude = parseFloat(data.result.latitude);
     var centerLongitude = parseFloat(data.result.longitude);
     var center = {lat: centerLatitude, lng: centerLongitude};
-    console.log("Coordinates to center", center);
+    // console.log("Coordinates to center", center);
     map.moveMapToCurrentLocation(center);
 
     console.log("publist callback: ", pubList);

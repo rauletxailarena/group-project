@@ -13,22 +13,21 @@ var submitButton = {
       postCodeRequestHelper.getRequest(postcode, function(data) {
 
         restaurantRequestHelper.getRestaurantsByCoords(data.result.latitude, data.result.longitude, function(data) {
-          console.log("restaurant info:", data)
+          // console.log("restaurant info:", data)
         })
 
         var pubList = pubDataHelper.getPubsByCoords(data.result.latitude, data.result.longitude, 0.01)
 
-        console.log("Pub list: ", pubList)
+        // console.log("Pub list: ", pubList)
 
         callback(pubList, data)
 
       })
 
       weatherRequestHelper.getCurrentWeatherByPostCode(postcode, function(data) {
-        console.log("weather data:", data)
+        // console.log("weather data:", data)
         display_weather.render(data);
       })
-
 
     })
   }

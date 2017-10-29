@@ -4,6 +4,7 @@ var restaurantRequestHelper = require("./restaurant_request_helper")
 var pubDataHelper = require("./pub_data/pub_data_helper.js")
 var displayWeather = require("../src/views/display_weather.js")
 var displayRestaurants = require("../src/views/display_restaurants.js")
+var displayPubs = require("../src/views/display_pubs.js")
 
 var submitButton = {
   addFunctionality: function(callback) {
@@ -20,8 +21,8 @@ var submitButton = {
 
         var pubList = pubDataHelper.getPubsByCoords(data.result.latitude, data.result.longitude, 0.01)
 
-        // console.log("Pub list: ", pubList)
-
+        console.log("Pub list: ", pubList)
+        displayPubs.render(pubList)
         callback(pubList, data)
 
       })

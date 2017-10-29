@@ -14,6 +14,12 @@ var displayRestaurants = {
   },
 
   render: function(restaurants) {
+
+    var restaurantContainer = document.getElementById("restaurants-info-container")
+    var title = document.createElement("h2")
+    title.textContent = "Restaurants";
+    restaurantContainer.appendChild(title)
+
     restaurants.forEach(function(restaurant) {
       this.renderRestaurant(restaurant)
     }.bind(this))

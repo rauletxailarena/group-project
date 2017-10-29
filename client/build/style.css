@@ -24,11 +24,12 @@ html{
   -moz-border-radius: 21;
   border-radius: 8px;
   font-family: Arial;
-  color: #ffffff ;
+  color: #f8f6ee ;
   font-size: 2em;
   padding: 10px 20px 10px 20px;
   border: solid #000000 1px;
   text-decoration: none;
+  margin: 5px;
 }
 
 #welcome-input-button:hover {
@@ -46,9 +47,10 @@ html{
 }
 
 #welcome-input{
-  width: 210px;
+  width: 265px;
   height: 50px;
   font-size: 1.5em;
+  margin: 5px;
 }
 
 /*#welcome-input-button{

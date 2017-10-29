@@ -24,11 +24,13 @@ var makeWelcomeButtonWork = function(){
     displayWelcomeViews.removeWelcome();
     console.log("requesting info for postcode:", postCode);
 
-    // display map
-    mapController.displayMap()
 
     // requeste postCode data
     postCodeRequestHelper.getRequest(postCode, function(data) {
+
+      // display map
+      console.log(data);
+      mapController.displayMap(data.result.latitude, data.result.longitude)
 
       // make request for restaurants
       restaurantRequestHelper.getRestaurantsByCoords(data.result.latitude, data.result.longitude, function(data) {

@@ -2,6 +2,7 @@ var postCodeRequestHelper = require("./post_code_request_helper")
 var weatherRequestHelper = require("./weather_request_helper")
 var restaurantRequestHelper = require("./restaurant_request_helper")
 var pubDataHelper = require("./pub_data/pub_data_helper.js")
+var display_weather = require("../src/views/display_weather.js")
 
 var submitButton = {
   addFunctionality: function(callback) {
@@ -25,6 +26,7 @@ var submitButton = {
 
       weatherRequestHelper.getCurrentWeatherByPostCode(postcode, function(data) {
         console.log("weather data:", data)
+        display_weather.render(data);
       })
 
 

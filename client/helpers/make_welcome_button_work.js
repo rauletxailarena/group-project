@@ -51,7 +51,7 @@ var makeWelcomeButtonWork = function(){
 
     // request weather information
     weatherRequestHelper.getCurrentWeatherByPostCode(postCode, function(data) {
-      displayWeather.render(data);
+      // displayWeather.render(data);
     })
   })
 }

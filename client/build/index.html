@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
     <title>Night Out</title>
     <script type="text/javascript" src="bundle.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -15,11 +16,6 @@
 
 
   <body>
-
-    <!-- <div id="postcode-field-wrapper">
-      <input type="text" id="postcode-input" placeholder="Enter your postcode">
-      <input type="button" id="postcode-submit-button" value="Sumbit">
-    </div> -->
 
     <div id="header-wrapper">
       <img src="header_image.jpg" alt="Party" id="header-image">
@@ -37,15 +33,32 @@
     </div>
 
     <div id="map-and-weather">
+
       <div id="map"></div>
-      <div id="weather-info-container"></div>
+      <div id="weather-and-buttons">
+        <div id="weather-info-container">
+          <div class="weather-row">
+            <p>Weather</p>
+            <img src="public/sun.png" alt="">
+          </div>
+          <div class="weather-row">
+            <p>Temperature</p>
+            <img src="public/temp.png" alt="">
+          </div>
+          <div class="weather-row">
+            <p>Wind</p>
+            <img src="public/wind.png" alt="">
+          </div>
+        </div>
+        <div id="filter-options">
+          <img type="button" id="pubs-button" src="public/pub.png" alt="Submit"></img>
+          <img type="button" id="restaurants-button" src="public/restaurant.png" alt="Submit"></img>
+          <img type="button" id="events-button" src="public/events.png" alt="Submit"></img>
+        </div>
+      </div>
     </div>
 
-    <div id="button-container">
-      <button id="restaurants-button">Restaurants</button>
-      <button id="pubs-button">Pubs</button>
-      <button id="events-button">Events</button>
-    </div>
+
 
     <div id="display-info-area">
       <div id="restaurants-info-container"></div>

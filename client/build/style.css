@@ -1,29 +1,86 @@
 html{
   background-color: #f8f6ee;
+  font-family: 'Ubuntu', sans-serif;
+
 }
+
+#map-and-weather{
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-around;*/
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 #map{
-  height: 450px;
-  width: 800px;
+  height: 523px;
+  width: 100%;
+  min-width: 400px;
   margin: 0px 50px 0px 50px;
+  flex:6;
+}
+
+#weather-and-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 4;
+  flex-direction: column;
+}
+
+#filter-options img{
+  height: 200px;
+  width: auto;
+  margin-bottom: 20px;
 }
 
 #weather-info-container{
+  display: flex;
+  flex-direction: column;
   height: 300px;
   width: 300px;
   margin: 0px 50px 0px 50px;
+  min-width: 400px;
+  flex-wrap: wrap;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.weather-row p{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.weather-row img{
+  height: 50px;
+  width: auto;
+}
+
+#filter-options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 #welcome-input-button {
-  background: #815389 ;
-  background-image: -webkit-linear-gradient(top, #815389 , #439DD4 );
+  background: #000000 ;
+  /*background-image: -webkit-linear-gradient(top, #815389 , #439DD4 );
   background-image: -moz-linear-gradient(top, #815389 , #439DD4 );
   background-image: -ms-linear-gradient(top, #815389 , #439DD4 );
   background-image: -o-linear-gradient(top, #815389 , #439DD4 );
-  background-image: linear-gradient(to bottom, #815389 , #439DD4 );
+  background-image: linear-gradient(to bottom, #815389 , #439DD4 );*/
   -webkit-border-radius: 21;
   -moz-border-radius: 21;
   border-radius: 8px;
-  font-family: Arial;
   color: #f8f6ee ;
   font-size: 2em;
   padding: 10px 20px 10px 20px;
@@ -33,12 +90,12 @@ html{
 }
 
 #welcome-input-button:hover {
-  background: #9f3cfc ;
-  background-image: -webkit-linear-gradient(top, #9f3cfc , #ffffff );
-  background-image: -moz-linear-gradient(top, #9f3cfc , #ffffff );
-  background-image: -ms-linear-gradient(top, #9f3cfc , #ffffff );
-  background-image: -o-linear-gradient(top, #9f3cfc , #ffffff );
-  background-image: linear-gradient(to bottom, #9f3cfc , #ffffff );
+  background: #815389 ;
+  background-image: -webkit-linear-gradient(top, #815389 , #439DD4 );
+  background-image: -moz-linear-gradient(top, #815389 , #439DD4 );
+  background-image: -ms-linear-gradient(top, #815389 , #439DD4 );
+  background-image: -o-linear-gradient(top, #815389 , #439DD4 );
+  background-image: linear-gradient(to bottom, #815389 , #439DD4 );
   text-decoration: none;
 }
 
@@ -47,7 +104,7 @@ html{
 }
 
 #nightout-title{
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -60,9 +117,12 @@ html{
 
 #welcome-input{
   width: 265px;
-  height: 50px;
+  height: 55px;
   font-size: 1.5em;
   margin: 5px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 9px;
 }
 
 
@@ -76,7 +136,8 @@ html{
 
 #header-image{
   width: 100%;
-  height: 600px;
+  max-height: 400px;
+  height: auto;
   object-fit: cover;
 }
 
@@ -85,7 +146,6 @@ html{
   font-weight: bold;
   padding: 5px;
   margin: 30px;
-  font-family: 'Montserrat', sans-serif;
 }
 
 #welcome-views{
@@ -99,11 +159,7 @@ html{
   justify-content: center;
 }
 
-#map-and-weather{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+
 
 #social-media-icons{
   display: flex;
@@ -113,7 +169,8 @@ html{
   height: 60px;
   width: 100%;
   position: relative;
-  padding-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 #icon{
@@ -129,5 +186,4 @@ html{
 
 body{
   height: 100%;
-  padding-bottom:60px;
 }

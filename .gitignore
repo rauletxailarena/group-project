@@ -8,3 +8,4 @@ client/helpers/keys/
 client/helpers/weather_api_key.js
 client/helpers/restaurant_api_key.js
 client/helpers/list_key.js
+client/helpers/keys/

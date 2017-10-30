@@ -5,3 +5,4 @@ client/build/bundle.js
 client/build/bundle.js.map
 client/helpers/weather_api_key.js
 client/helpers/restaurant_api_key.js
+client/helpers/list_key.js

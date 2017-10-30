@@ -7,7 +7,10 @@ html{
 #map-and-weather{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /*justify-content: space-around;*/
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 #map{
@@ -19,7 +22,11 @@ html{
 }
 
 #weather-and-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 4;
+  flex-direction: column;
 }
 
 #filter-options img{
@@ -29,12 +36,16 @@ html{
 }
 
 #weather-info-container{
+  display: flex;
+  flex-direction: column;
   height: 300px;
   width: 300px;
   margin: 0px 50px 0px 50px;
   min-width: 400px;
   flex-wrap: wrap;
-  flex: 1
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 }
 
 #filter-options{

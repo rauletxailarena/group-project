@@ -1,12 +1,12 @@
-var Event = function(api_object) {
+var NightOutEvent = function(api_object) {
   this.lng =  api_object.schedules[0].place.lng
   this.lat =  api_object.schedules[0].place.lat
   this.name = api_object.name
   this.description = api_object.descriptions[0].description
 }
 
-// Event.prototype.methodName = function() {
+// NightOutEvent.prototype.methodName = function() {
 //   return null
 // }
 
-module.exports = Event
+module.exports = NightOutEvent

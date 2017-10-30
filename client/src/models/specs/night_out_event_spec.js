@@ -1,7 +1,7 @@
-var Event = require('../event.js')
+var NightOutEvent = require('../night_out_event.js')
 var assert = require('assert')
 
-describe('Event', function(){
+describe('NightOutEvent', function(){
   var theMockApiObject
   var theEvent
 
@@ -13,7 +13,7 @@ describe('Event', function(){
     theMockApiObject.schedules = [{place: {}}]
     theMockApiObject.schedules[0].place.lat = -4.567
     theMockApiObject.schedules[0].place.lng = 0.51001
-    theEvent = new Event(theMockApiObject)
+    theEvent = new NightOutEvent(theMockApiObject)
   })
 
   it('has a name', function(){

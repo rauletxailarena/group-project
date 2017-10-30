@@ -1,5 +1,5 @@
 var hiddenListKey = require("./keys/list_api_key.js")
-var Event = require('../src/models/event.js')
+var NightOutEvent = require('../src/models/night_out_event.js')
 
 var eventsHelper = {
 
@@ -10,7 +10,10 @@ var eventsHelper = {
     var xhr = new XMLHttpRequest()
     xhr.open('GET', url)
 
+    // OTHER THAN THIS LINE, ALL THE CODE
+    // CAN BE FACTORED OUT INTO request_helper.js
     xhr.setRequestHeader("Authorization", "Bearer " + hiddenListKey )
+    // <end comment>
 
     xhr.addEventListener('load', function () {
       console.log("xhr");
@@ -24,13 +27,5 @@ var eventsHelper = {
   }
 
 }
-
-eventsHelper.getRequest( function (data){
-  var theEventObject = data[0]
-  var theEventModelledObject = new Event(theEventObject)
-  console.log(theEventObject)
-  console.log(theEventModelledObject)
-})
-
 
 module.exports = eventsHelper

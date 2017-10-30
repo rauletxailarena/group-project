@@ -1,5 +1,3 @@
-
-
 var MapWrapper = function (container, coords, zoom) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
@@ -58,9 +56,10 @@ MapWrapper.prototype.geolocate = function () {
 
 MapWrapper.prototype.moveMapToCurrentLocation = function (position) {
   // console.log(this);
-  var center = { lat: position.coords.latitude, lng: position.coords.longitude };
-  this.googleMap.setCenter(center);
-  this.addMarker(center);
+  var coords = { lat: position.lat, lng: position.lng };
+  var latLng = new google.maps.LatLng(coords.lat, coords.lng);
+  // console.log("Trying to center map:", latLng);
+  this.googleMap.setCenter({lat: position.lat, lng: position.lng});
 }
 
 module.exports = MapWrapper

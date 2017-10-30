@@ -3,23 +3,63 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
     <title>Night Out</title>
-
     <script type="text/javascript" src="bundle.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="https://api.list.co.uk/v1/events", Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTk3NGEyZWQtYzQ2MS00NjgyLTkyMzAtNTA3ZTQ0MDU0MTA5Iiwia2V5X2lkIjoiNmU4ZGY2MTQtMmIwYS00ZjM1LTk3YTUtMmM5NzMxNGMwNzEwIiwiaWF0IjoxNTA5MDI4NDAwfQ.y_EsZZ43t1RQYMoV5MrnlN7lMDlCUm_C6FPrC16MaB4></script>
 
   </head>
+
+  <div class="whole-body">
+
+
   <body>
-    <h1>Night Out</h1>
 
+    <!-- <div id="postcode-field-wrapper">
+      <input type="text" id="postcode-input" placeholder="Enter your postcode">
+      <input type="button" id="postcode-submit-button" value="Sumbit">
+    </div> -->
 
-    <div id="main-content">
-      <p>Add some content here</p>
+    <div id="header-wrapper">
+      <img src="header_image.jpg" alt="Party" id="header-image">
+      <h1>NightOut</h1>
     </div>
 
-    <div id="map"></div>
+    <div id="welcome-views">
+      <div class="flex-box-element">
+        <label id = "welcome-text-label" for="welcome_input">Lets make a plan!</label>
+      </div>
+      <div class= "flex-box-element">
+        <input type="text" id="welcome-input" style="text-transform:uppercase" placeholder="Enter postcode">
+        <button id="welcome-input-button">SUBMIT</button>
+      </div>
+    </div>
+
+    <div id="map-and-weather">
+      <div id="map"></div>
+      <div id="weather-info-container"></div>
+    </div>
+
+    <div id="display-info-area">
+      <div id="restaurants-info-container"></div>
+      <div id="pubs-info-container"></div>
+
+    </div>
 
 
   </body>
+
+  </div>
+
+
+  <footer>
+
+    <div id="social-media-icons">
+      <img id="icon" src="facebook_icon.png" alt="facebook">
+      <img id="icon" src="twitter_icon.png" alt="twitter">
+      <img id="icon" src="email_icon.png" alt="email">
+    </div>
+
+  </footer>
 </html>

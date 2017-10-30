@@ -1,5 +1,7 @@
 node_modules/
 private_folder/
 .DS_Store
-build/bundle.js
-build/bundle.js.map
+client/build/bundle.js
+client/build/bundle.js.map
+client/helpers/weather_api_key.js
+client/helpers/restaurant_api_key.js

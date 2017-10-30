@@ -2,13 +2,13 @@ var data = require('./open_pubs.json')
 
 var pubDataHelper = {
   pubsData: data,
-  findPubByCity: function(name){
+  getPubByCity: function(name){
      return filteredPubs = this.pubsData.filter(function (pub) {
       return pub.local_authority === name;
     })
   },
 
-  findPubsByCoordinates: function(lat, lng, radius){
+  getPubsByCoords: function(lat, lng, radius){
 
     var minLat = lat - radius;
     var maxLat = lat + radius;
@@ -25,3 +25,5 @@ var pubDataHelper = {
     })
   }
 }
+
+module.exports = pubDataHelper

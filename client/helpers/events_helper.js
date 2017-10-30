@@ -4,8 +4,27 @@ var NightOutEvent = require('../src/models/night_out_event.js')
 var eventsHelper = {
 
   getRequest: function ( callback ) {
-    var url = "https://api.list.co.uk/v1/events"
 
+    // ?param=value&param2=value2...
+    // Look for:
+    // ?
+    // =
+    // &
+    // var url = "https://api.list.co.uk/v1/events"
+    var url = "https://api.list.co.uk/v1/search"
+
+    // DEBUG - does this work? filter just events with a performance tonight?
+    // var extra = "?query=tonight"
+    // var extra = "?query*=*tonight"  // NO WORK :(
+    // var extra = "?query=the&near=50.1111,-3.1222/100"  // THIS WORKS!
+    // var extra = "?query=thetonight"                 // THIS WORKS!
+    var extra = "?query=the"                 // THIS WORKS!
+    url += extra
+    console.log("URL", url)
+    // FINDINGS
+    // 1) Can use 'query=thetext' to search for events with 'thetext' in
+    // 2) The 'query=tonight' doesn't appear to work
+    // 3) The 'near=NN.NNNN,NN.NNNN/NNNN' doesn't appear to work
 
     var xhr = new XMLHttpRequest()
     xhr.open('GET', url)

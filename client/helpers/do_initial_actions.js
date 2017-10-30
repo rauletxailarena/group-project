@@ -8,11 +8,13 @@ var doInitialActions = function(){
   // e.g. not having to wait for SUBMIT button to be clicked.
 
   // Console log some data returned from the events/list API
+  // There's some code in the events_helper.js
   eventsHelper.getRequest( function (data){
+    console.log("All events", data)
     var theEventObject = data[0]
     var theEventModelledObject = new NightOutEvent(theEventObject)
-    console.log(theEventObject)
-    console.log(theEventModelledObject)
+    console.log("First event as returned object", theEventObject)
+    console.log("First event as model object", theEventModelledObject)
   })
 
 }

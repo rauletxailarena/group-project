@@ -3,16 +3,44 @@ html{
   font-family: 'Ubuntu', sans-serif;
 
 }
+
+#map-and-weather{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 #map{
-  height: 450px;
-  width: 800px;
+  height: 523px;
+  width: 100%;
+  min-width: 400px;
   margin: 0px 50px 0px 50px;
+  flex:6;
+}
+
+#weather-and-buttons {
+  flex: 4;
+}
+
+#filter-options img{
+  height: 200px;
+  width: auto;
+  margin-bottom: 20px;
 }
 
 #weather-info-container{
   height: 300px;
   width: 300px;
   margin: 0px 50px 0px 50px;
+  min-width: 400px;
+  flex-wrap: wrap;
+  flex: 1
+}
+
+#filter-options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 #welcome-input-button {
@@ -103,11 +131,7 @@ html{
   justify-content: center;
 }
 
-#map-and-weather{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+
 
 #social-media-icons{
   display: flex;

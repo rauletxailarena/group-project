@@ -17,11 +17,6 @@
 
   <body>
 
-    <!-- <div id="postcode-field-wrapper">
-      <input type="text" id="postcode-input" placeholder="Enter your postcode">
-      <input type="button" id="postcode-submit-button" value="Sumbit">
-    </div> -->
-
     <div id="header-wrapper">
       <img src="header_image.jpg" alt="Party" id="header-image">
       <h1 id="nightout-title">NightOut</h1>
@@ -38,15 +33,18 @@
     </div>
 
     <div id="map-and-weather">
+
       <div id="map"></div>
-      <div id="weather-info-container"></div>
+      <div id="weather-and-buttons">
+        <div id="weather-info-container"></div>
+        <div id="filter-options">
+          <img type="button" id="pubs-button" src="public/pub.png" alt="Submit"></img>
+          <img type="button" id="restaurant-button" src="public/restaurant.png" alt="Submit"></img>
+          <img type="button" id="events-button" src="public/events.png" alt="Submit"></img>
+        </div>
+      </div>
     </div>
 
-    <div id="button-container">
-      <button id="restaurant-button">Restaurants</button>
-      <button id="pubs-button">Pubs</button>
-      <button id="events-button">Events</button>
-    </div>
 
     <div id="display-info-area">
       <div id="restaurants-info-container"></div>

@@ -21,7 +21,7 @@ var makeWelcomeButtonWork = function(){
     var postCode = postCodeField.value
 
     // remove welcome elements
-    // displayWelcomeViews.removeWelcome();
+    displayWelcomeViews.removeWelcome();
     console.log("requesting info for postcode:", postCode);
 
 

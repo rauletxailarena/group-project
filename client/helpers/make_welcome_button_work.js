@@ -22,7 +22,7 @@ var makeWelcomeButtonWork = function(){
     console.log("Postcode value", postCode);
 
     // remove welcome elements
-    displayWelcomeViews.removeWelcome();
+    displayWelcomeViews.renderInformationScreen();
     console.log("Requesting info for postcode", postCode);
 
 

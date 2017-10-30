@@ -15,32 +15,37 @@ var makeWelcomeButtonWork = function(){
   button.addEventListener("click", function(){
 
 
-    // Grab the value of hte welcome input field
+    // Grab the value of the welcome input field
     var postCodeField = document.getElementById("welcome-input")
-    console.log("postCode field", postCodeField);
     var postCode = postCodeField.value
+    console.log("Postcode field", postCodeField);
+    console.log("Postcode value", postCode);
 
     // remove welcome elements
     displayWelcomeViews.removeWelcome();
-    console.log("requesting info for postcode:", postCode);
+    console.log("Requesting info for postcode", postCode);
 
 
     // requeste postCode data
     postCodeRequestHelper.getRequest(postCode, function(data) {
 
+      // Setup variables
+      var lat = data.result.latitude
+      var lng = data.result.longitude
+
       // display map
       console.log(data);
-      mapController.displayMap(data.result.latitude, data.result.longitude)
+      mapController.displayMap(lat, lng)
 
       // make request for restaurants
-      restaurantRequestHelper.getRestaurantsByCoords(data.result.latitude, data.result.longitude, function(data) {
-        console.log("restaurant info:", data.restaurants)
+      restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data) {
+        console.log("Restaurants", data.restaurants)
         // displayRestaurants.render(data.restaurants)
       })
 
       // make request for pubs
-      var pubList = pubDataHelper.getPubsByCoords(data.result.latitude, data.result.longitude, 0.01)
-      console.log("Pub list: ", pubList)
+      var pubList = pubDataHelper.getPubsByCoords(lat, lng, 0.01)
+      console.log("Pubs", pubList)
       // displayPubs.render(pubList)
     })
 
@@ -50,6 +55,5 @@ var makeWelcomeButtonWork = function(){
     })
   })
 }
-
 
 module.exports = makeWelcomeButtonWork;

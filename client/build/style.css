@@ -69,7 +69,7 @@ html{
 
 #header-image{
   width: 100%;
-  height: 450px;
+  height: 400px;
   object-fit: cover;
 }
 
@@ -85,7 +85,7 @@ html{
   display: flex;
   flex-direction: column;
   width: 95%;
-  height: 10%;
+  height: 0%;
   position: absolute;
   align-items: center;
   justify-content: center;
@@ -95,4 +95,31 @@ html{
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+#social-media-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  padding-bottom: 50px;
+}
+
+#icon{
+  height: 75px;
+  width: 75px;
+  }
+
+#whole-body{
+  min-height:100%;
+  position:relative;
+  padding-bottom:60px;
+}
+
+body{
+  height: 100%;
+  padding-bottom:60px;
 }

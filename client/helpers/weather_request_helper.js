@@ -1,4 +1,4 @@
-var hiddenApiKey = require('./weather_api_key.js')
+var hiddenApiKey = require('./keys/weather_api_key.js')
 
 var weatherRequestHelper = {
   tempUrl: "http://www.myweather2.com/developer/forecast.ashx?uac=" + hiddenApiKey

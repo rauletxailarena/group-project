@@ -1,4 +1,4 @@
-var hiddenApiKey = require('./restaurant_api_key.js')
+var hiddenApiKey = require('./keys/restaurant_api_key.js')
 
 var restaurantRequestHelper = {
 

@@ -1,4 +1,5 @@
 var hiddenListKey = require("./list_key.js")
+var Event = require('../src/models/event.js')
 
 var eventsHelper = {
 
@@ -24,12 +25,12 @@ var eventsHelper = {
 
 }
 
-// eventsHelper.getRequest( function (data){
-//   // console.log("event data", data[0].schedules[0].place.lng)
-//   // console.log("event data", data[0].name)
-//   // console.log("event data", data[0].descriptions[0].description)
-//
-// })
+eventsHelper.getRequest( function (data){
+  var theEventObject = data[0]
+  var theEventModelledObject = new Event(theEventObject)
+  console.log(theEventObject)
+  console.log(theEventModelledObject)
+})
 
 
 module.exports = eventsHelper

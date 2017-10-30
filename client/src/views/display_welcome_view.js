@@ -6,6 +6,12 @@ var displayWelcomeViews = {
     button.style.display = "none";
     input.style.display = "none";
     welcomeText.style.display = "none"
+  },
+  renderWelcomeScreen: function(){
+    var elementsToRemove = document.getElementsByClassName("hide-at-welcome")
+    for (var element of elementsToRemove){
+      element.style.display = "none";
+    }
   }
 }
 

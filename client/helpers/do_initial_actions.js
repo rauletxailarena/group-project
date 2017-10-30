@@ -1,11 +1,15 @@
 var eventsHelper = require('./events_helper.js')
 var NightOutEvent = require('../src/models/night_out_event.js')
+var displayWelcomeView = require('../src/views/display_welcome_view')
 
 var doInitialActions = function(){
 
   // Put anything in here which we want to happen immediately
   // on loading page
   // e.g. not having to wait for SUBMIT button to be clicked.
+
+  // Hide all the non-essencial elements
+  displayWelcomeView.renderWelcomeScreen();
 
   // Console log some data returned from the events/list API
   // There's some code in the events_helper.js

@@ -21,7 +21,7 @@ var makeWelcomeButtonWork = function(){
     var postCode = postCodeField.value
 
     // remove welcome elements
-    displayWelcomeViews.removeWelcome();
+    // displayWelcomeViews.removeWelcome();
     console.log("requesting info for postcode:", postCode);
 
 
@@ -46,7 +46,7 @@ var makeWelcomeButtonWork = function(){
 
     // request weather information
     weatherRequestHelper.getCurrentWeatherByPostCode(postCode, function(data) {
-      displayWeather.render(data);
+      // displayWeather.render(data);
     })
   })
 }

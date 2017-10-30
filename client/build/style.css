@@ -48,6 +48,23 @@ html{
   justify-content: center;
 }
 
+.weather-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.weather-row p{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.weather-row img{
+  height: 50px;
+  width: auto;
+}
+
 #filter-options{
   display: flex;
   flex-direction: row;

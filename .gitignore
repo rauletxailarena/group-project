@@ -1,3 +1,5 @@
 node_modules/
 private_folder/
 .DS_Store
+build/bundle.js
+build/bundle.js.map

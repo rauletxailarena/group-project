@@ -24,9 +24,12 @@ var eventsHelper = {
 
 }
 
-eventsHelper.getRequest( function (data){
-  console.log(data)
-})
+// eventsHelper.getRequest( function (data){
+//   // console.log("event data", data[0].schedules[0].place.lng)
+//   // console.log("event data", data[0].name)
+//   // console.log("event data", data[0].descriptions[0].description)
+//
+// })
 
 
 module.exports = eventsHelper

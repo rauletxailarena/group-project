@@ -104,7 +104,7 @@ html{
   bottom: 0;
   height: 60px;
   width: 100%;
-  position: absolute;
+  position: relative;
   padding-bottom: 50px;
 }
 

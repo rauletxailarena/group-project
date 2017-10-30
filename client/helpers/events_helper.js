@@ -1,4 +1,4 @@
-var hiddenListKey = require("./list_key.js")
+var hiddenListKey = require("./keys/list_api_key.js")
 var Event = require('../src/models/event.js')
 
 var eventsHelper = {

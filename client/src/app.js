@@ -4,6 +4,7 @@ var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
 var buttonListener = require('../helpers/make_submit_button_work.js')
 var restaurantRequestHelper = require('../helpers/restaurant_request_helper.js')
 var makeWelcomeButtonWork = require('../helpers/make_welcome_button_work.js')
+var eventsHelper = require('../helpers/events_helper.js')
 
 window.addEventListener('load', function(){
 

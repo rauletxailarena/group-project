@@ -89,10 +89,11 @@ var MapWrapper = function (container, coords, zoom) {
   this.moveMapToCurrentLocation = this.moveMapToCurrentLocation.bind(this);
 }
 
-MapWrapper.prototype.addMarker = function (coords, infoWindowContent) {
+MapWrapper.prototype.addMarker = function (coords, markerIcon, infoWindowContent) {
   var marker = new google.maps.Marker({
     position: coords,
-    map: this.googleMap
+    map: this.googleMap,
+    icon: markerIcon
   });
   if (infoWindowContent) {
     var infoWindow = new google.maps.InfoWindow({

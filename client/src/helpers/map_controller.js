@@ -1,9 +1,20 @@
+var mapWrapper = require ('./map_wrapper')
+var map;
+
 var mapController = {
   displayMap: function(lat, lng){
-    var mapWrapper = require ('./map_wrapper')
     var mapContainer = document.getElementById("map");
-    var map = new mapWrapper(mapContainer, {lat: lat, lng: lng}, 15 );
+    map = new mapWrapper(mapContainer, {lat: lat, lng: lng}, 15 );
+  },
+  addColourMarker: function(item, marker){
+    var pubIcon = marker
+    var latitude = parseFloat(item.latitude);
+    var longitude = parseFloat(item.longitude);
+    var coords = {lat: latitude, lng: longitude};
+    map.addMarker(coords, marker);
   }
 }
+
+
 
 module.exports = mapController

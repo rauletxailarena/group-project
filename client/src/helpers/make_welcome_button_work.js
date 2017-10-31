@@ -45,13 +45,15 @@ var makeWelcomeButtonWork = function(){
 
       // make request for pubs
       var pubList = pubDataHelper.getPubsByCoords(lat, lng, 0.01)
-      console.log("Pubs", pubList)
+      console.log("Pubs", pubList);
+      displayPubs.renderMarkers(pubList);
       // displayPubs.render(pubList)
     })
 
     // request weather information
     weatherRequestHelper.getCurrentWeatherByPostCode(postCode, function(data) {
-      // displayWeather.render(data);
+      console.log(data);
+      displayWeather.render(data)
     })
   })
 }

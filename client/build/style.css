@@ -30,7 +30,7 @@ html{
 }
 
 #filter-options img{
-  height: 200px;
+  height: 175px;
   width: auto;
   margin-bottom: 20px;
 }
@@ -47,6 +47,11 @@ html{
 
 #restaurants-button:hover{
   content: url("/public/purple_restaurant.png");
+  cursor: pointer;
+}
+
+#favorites-button:hover{
+  content: url("/public/blue_saved_list.png");
   cursor: pointer;
 }
 

@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient
+var ObjectID = require('mongodb').ObjectID
 
 var queryHelper = {}
 
@@ -18,6 +19,25 @@ queryHelper.all = function(theCollectionName, onQueryFinished){
       console.log(Date.now(), 'MongoClient', "queryHelper", "all", "connect", "find, array");
       onQueryFinished(docs)
     })
+  })
+}
+
+// Example call: queryHelper.find('pubs', "a1a1a1a1aa..." callback)
+queryHelper.find = function(theCollectionName, theIdValue, onQueryFinished){
+  console.log(Date.now(), 'MongoClient', "queryHelper", "find method on", theCollectionName);
+  MongoClient.connect(this.url, function(err, db){
+    console.log(Date.now(), 'MongoClient', "queryHelper", "find", "connect method");
+    var theCollection = db.collection(theCollectionName)
+    var objectID = new ObjectID(theIdValue)
+    theCollection
+      .find(objectID)
+      .toArray(function(err, docs){
+        console.log(Date.now(), 'MongoClient', "queryHelper", "find", "connect", "find, array");
+        console.log('docs', docs)
+        // var obj = docs[0]
+        // ;(obj) ? onQueryFinished(obj) : onQueryFinished("")
+        onQueryFinished(docs[0]) 
+      })
   })
 }
 

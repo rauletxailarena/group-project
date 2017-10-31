@@ -68,16 +68,29 @@ html{
   justify-content: center;
 }
 
+#thermometer-image{
+  padding-left: 8%;
+}
+
 .weather-row{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
+  align-items: center;
+  text-align: left;
+  /*justify-content: center;*/
 }
 
 .weather-row p{
+  flex:1;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin: 5px 0px 5px 0px;
+}
+
+.weather-row div {
+  flex: 1;
 }
 
 .weather-row img{

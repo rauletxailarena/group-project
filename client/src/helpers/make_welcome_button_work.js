@@ -1,11 +1,11 @@
-var displayWelcomeViews = require("../src/views/display_welcome_view.js");
+var displayWelcomeViews = require("../views/display_welcome_view.js");
 var postCodeRequestHelper = require("./post_code_request_helper")
 var weatherRequestHelper = require("./weather_request_helper")
 var restaurantRequestHelper = require("./restaurant_request_helper")
 var pubDataHelper = require("./pub_data/pub_data_helper.js")
-var displayWeather = require("../src/views/display_weather.js")
-var displayRestaurants = require("../src/views/display_restaurants.js")
-var displayPubs = require("../src/views/display_pubs.js")
+var displayWeather = require("../views/display_weather.js")
+var displayRestaurants = require("../views/display_restaurants.js")
+var displayPubs = require("../views/display_pubs.js")
 var mapController = require("./map_controller")
 
 var makeWelcomeButtonWork = function(){

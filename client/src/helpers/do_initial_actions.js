@@ -1,6 +1,6 @@
 var eventsHelper = require('./events_helper.js')
-var NightOutEvent = require('../src/models/night_out_event.js')
-var displayWelcomeView = require('../src/views/display_welcome_view')
+var NightOutEvent = require('../models/night_out_event.js')
+var displayWelcomeView = require('../views/display_welcome_view')
 
 var doInitialActions = function(){
 

@@ -1,5 +1,5 @@
 var hiddenListKey = require("./keys/list_api_key.js")
-var NightOutEvent = require('../src/models/night_out_event.js')
+var NightOutEvent = require('../models/night_out_event.js')
 
 var eventsHelper = {
 

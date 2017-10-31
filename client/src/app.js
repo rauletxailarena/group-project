@@ -1,14 +1,13 @@
-var mapWrapper = require ('../helpers/map_wrapper')
-var postCodeRequestHelper = require ('../helpers/post_code_request_helper.js')
-var weatherRequestHelper = require ('../helpers/weather_request_helper.js')
-var buttonListener = require('../helpers/make_submit_button_work.js')
-var restaurantRequestHelper = require('../helpers/restaurant_request_helper.js')
-var makeWelcomeButtonWork = require('../helpers/make_welcome_button_work.js')
-var eventsHelper = require('../helpers/events_helper.js')
-var makeRestaurantsButtonWork = require('../helpers/make_restaurants_button_work.js')
-var makePubsButtonWork = require('../helpers/make_Pubs_button_work.js')
-var makeEventsButtonWork = require('../helpers/make_events_button_work.js')
-var doInitialActions = require('../helpers/do_initial_actions.js')
+var mapWrapper = require ('./helpers/map_wrapper')
+var postCodeRequestHelper = require ('./helpers/post_code_request_helper.js')
+var weatherRequestHelper = require ('./helpers/weather_request_helper.js')
+var restaurantRequestHelper = require('./helpers/restaurant_request_helper.js')
+var makeWelcomeButtonWork = require('./helpers/make_welcome_button_work.js')
+var eventsHelper = require('./helpers/events_helper.js')
+var makeRestaurantsButtonWork = require('./helpers/make_restaurants_button_work.js')
+var makePubsButtonWork = require('./helpers/make_Pubs_button_work.js')
+var makeEventsButtonWork = require('./helpers/make_events_button_work.js')
+var doInitialActions = require('./helpers/do_initial_actions.js')
 
 window.addEventListener('load', function(){
 
@@ -18,7 +17,7 @@ window.addEventListener('load', function(){
   makePubsButtonWork();
   makeEventsButtonWork();
 
-  // Do some stuff before SUBMIT is pressed  
+  // Do some stuff before SUBMIT is pressed
   doInitialActions();
 
 

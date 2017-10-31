@@ -32,9 +32,24 @@ var displayRestaurants = {
 
   renderMarkers: function(restaurantList){
     var colourMarker = "public/markers/pink_markerA.png"
-    var infoWindow = "Test window"
     restaurantList.forEach(function(restaurant){
-      mapController.addColourMarker(restaurant, colourMarker, infoWindow)
+      // create info window for the element
+      var container = document.createElement("div")
+      var nameHTML = document.createElement("h3")
+      var addressHTML = document.createElement("p")
+      var cuisinesHTML = document.createElement("p")
+      var menuURL = document.createElement("a")
+
+      nameHTML.textContent = restaurant.name;
+      addressHTML.textContent = restaurant.address;
+      cuisinesHTML.textContent = restaurant.cuisines;
+      menuURL.href = restaurant.menu_url;
+
+      container.appendChild(nameHTML);
+      container.appendChild(addressHTML);
+      container.appendChild(cuisinesHTML);
+      container.appendChild(menuURL);
+      mapController.addColourMarker(restaurant, colourMarker, container)
     })
   }
 }

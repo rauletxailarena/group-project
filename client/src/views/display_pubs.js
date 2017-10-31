@@ -30,13 +30,17 @@ var displayPubs = {
   renderMarkers: function(pubList){
     var colourMarker = "public/markers/blue_markerA.png"
     pubList.forEach(function(pub){
+
+      // create info window for the element
       var container = document.createElement("div")
-      var nameHTML = document.createElement("p")
+      var nameHTML = document.createElement("h3")
       var addressHTML = document.createElement("p")
       var postcodeHTML = document.createElement("p")
+
       nameHTML.textContent = pub.name;
       addressHTML.textContent = pub.address;
       postcodeHTML.textContent = pub.postcode;
+
       container.appendChild(nameHTML);
       container.appendChild(addressHTML);
       container.appendChild(postcodeHTML);

@@ -8,17 +8,20 @@ var makeRestaurantsButtonWork = require('./helpers/make_restaurants_button_work.
 var makePubsButtonWork = require('./helpers/make_Pubs_button_work.js')
 var makeEventsButtonWork = require('./helpers/make_events_button_work.js')
 var doInitialActions = require('./helpers/do_initial_actions.js')
+var UI = require('./helpers/UI.js')
 
 window.addEventListener('load', function(){
 
   // Make the stuff on the page work properly
-  makeWelcomeButtonWork();
-  makeRestaurantsButtonWork();
-  makePubsButtonWork();
-  makeEventsButtonWork();
+  // makeWelcomeButtonWork();
+  // makeRestaurantsButtonWork();
+  // makePubsButtonWork();
+  // makeEventsButtonWork();
 
   // Do some stuff before SUBMIT is pressed
   doInitialActions();
+  var ui = new UI();
+  ui.render()
 
 
   // buttonListener.addFunctionality(function(pubList, data) {

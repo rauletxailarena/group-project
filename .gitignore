@@ -3,9 +3,4 @@ private_folder/
 .DS_Store
 client/build/bundle.js
 client/build/bundle.js.map
-client/helpers/keys/
-
-client/helpers/weather_api_key.js
-client/helpers/restaurant_api_key.js
-client/helpers/list_key.js
-client/helpers/keys/
+client/src/helpers/keys/

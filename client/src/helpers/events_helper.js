@@ -10,16 +10,17 @@ var eventsHelper = {
     // ?
     // =
     // &
-    // var url = "https://api.list.co.uk/v1/events"
-    var url = "https://api.list.co.uk/v1/search"
+    var url = "https://api.list.co.uk/v1/events?"
+    // var url = "https://api.list.co.uk/v1/search"
 
     // DEBUG - does this work? filter just events with a performance tonight?
     // var extra = "?query=tonight"
     // var extra = "?query*=*tonight"  // NO WORK :(
-    // var extra = "?query=the&near=50.1111,-3.1222/100"  // THIS WORKS!
+    var near = "near=53.55,-1.479/5"  // THIS WORKS!
     // var extra = "?query=thetonight"                 // THIS WORKS!
-    var extra = "?query=the"                 // THIS WORKS!
-    url += extra
+    // var extra = "?query=the"                 // THIS WORKS!
+    var today = "min_date=2017-10-31&max_date=2017-11-01"
+    url += near + "&" + today;
     console.log("URL", url)
     // FINDINGS
     // 1) Can use 'query=thetext' to search for events with 'thetext' in

@@ -18,9 +18,9 @@ db.dropDatabase();
 
 // // Set up some initial data
 // // (Set up a suitable api_object for each of these:)
-var newEvent = new NightOutEvent(api_object)
-var newPub = new Pub(api_object)
-var newRestaurant = new Restaurant(api_object)
+// var newEvent = new NightOutEvent(api_object)
+// var newPub = new Pub(api_object)
+// var newRestaurant = new Restaurant(api_object)
 //
 // // Set up the data array
 // var locationsArray = []

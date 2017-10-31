@@ -30,7 +30,18 @@ var displayPubs = {
   renderMarkers: function(pubList){
     var colourMarker = "public/markers/blue_markerA.png"
     pubList.forEach(function(pub){
-      mapController.addColourMarker(pub, colourMarker)
+      var container = document.createElement("div")
+      var nameHTML = document.createElement("p")
+      var addressHTML = document.createElement("p")
+      var postcodeHTML = document.createElement("p")
+      nameHTML.textContent = pub.name;
+      addressHTML.textContent = pub.address;
+      postcodeHTML.textContent = pub.postcode;
+      container.appendChild(nameHTML);
+      container.appendChild(addressHTML);
+      container.appendChild(postcodeHTML);
+
+      mapController.addColourMarker(pub, colourMarker, container)
     })
   }
 

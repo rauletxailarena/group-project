@@ -29,13 +29,17 @@ html{
   flex-direction: column;
 }
 
-#filter-options img{
+#filter-options img {
   height: 175px;
   width: auto;
   margin-bottom: 20px;
 }
 
-#pubs-button:hover{
+#pubs-button {
+  content:
+}
+
+#pubs-button:hover {
   content: url("/public/purple_pub.png");
   cursor: pointer;
 }

@@ -6,8 +6,6 @@ var displayRestaurants = {
     var nameP = document.createElement("p")
     var cuisineP = document.createElement("p")
 
-    // cuisineP.classList.add("small-text")
-
     nameP.textContent = restaurant.restaurant.name
     cuisineP.textContent = restaurant.restaurant.cuisines
 
@@ -34,8 +32,9 @@ var displayRestaurants = {
 
   renderMarkers: function(restaurantList){
     var colourMarker = "public/markers/pink_markerA.png"
+    var infoWindow = "Test window"
     restaurantList.forEach(function(restaurant){
-      mapController.addColourMarker(restaurant, colourMarker)
+      mapController.addColourMarker(restaurant, colourMarker, infoWindow)
     })
   }
 }

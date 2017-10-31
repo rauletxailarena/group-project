@@ -1,3 +1,5 @@
+var mapController = require("../helpers/map_controller.js")
+
 var displayPubs = {
   renderPub: function(pub) {
     var pubContainer = document.getElementById("pubs-info-container")
@@ -23,7 +25,15 @@ var displayPubs = {
   resetRender: function(){
     var pubContainer = document.getElementById("pubs-info-container")
     pubContainer.innerHTML = ""
+  },
+
+  renderMarkers: function(pubList){
+    var colourMarker = "public/markers/blue_markerA.png"
+    pubList.forEach(function(pub){
+      mapController.addColourMarker(pub, colourMarker)
+    })
   }
+
 }
 
 

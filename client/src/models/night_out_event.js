@@ -1,15 +1,34 @@
-var NightOutEvent = function(api_object) {
-  // // For objects returned from v1/events
-  // this.lng =  api_object.schedules[0].place.lng
-  // this.lat =  api_object.schedules[0].place.lat
-  // this.name = api_object.name
-  // this.description = api_object.descriptions[0].description
+var NightOutEvent = function(input_object) {
+  this.type = "event"
 
-  // For objects returned from v1/search
-  this.lng =  api_object.lng
-  this.lat =  api_object.lat
-  this.name = api_object.name
-  this.description = ""
+  // When saving an object to Mongo DB,
+  // set the .mongo tag so that when it comes out again
+  // we use the correct If statement branch in the constructor!
+  var isFromMongoDB = (input_object.mongo) ? true : false
+
+  if (isFromMongoDB) {
+    // input_object must be from our Mongo DB
+    this.name = input_object.name
+    this.venue = input_object.venue
+    this.town = input_object.town
+    this.postcode = input_object.postcode
+    this.tags = input_object.tags
+    this.description = input_object.description
+    this.coords = {}
+    this.coords.lat = input_object.lat
+    this.coords.lng = input_object.lng
+  } else {
+    // input_object must be from API
+    this.name = input_object.name
+    this.venue = input_object.place_name
+    this.town = input_object.town
+    this.postcode = input_object.postal_code
+    this.tags = input_object.tags
+    this.description = input_object.descriptions[0].description
+    this.coords = {}
+    this.coords.lat = input_object.schedules[0].place.lat
+    this.coords.lng = input_object.schedules[0].place.lng
+  }
 }
 
 // NightOutEvent.prototype.methodName = function() {

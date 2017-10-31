@@ -40,22 +40,22 @@ html{
 }
 
 #pubs-button:hover {
-  content: url("/public/purple_pub.png");
+  content: url("/public/purple_pub_with_text.png");
   cursor: pointer;
 }
 
 #events-button:hover{
-  content: url("/public/purple_events.png");
+  content: url("/public/purple_events_with_text.png");
   cursor: pointer;
 }
 
 #restaurants-button:hover{
-  content: url("/public/purple_restaurant.png");
+  content: url("/public/purple_restaurant_with_text.png");
   cursor: pointer;
 }
 
 #favorites-button:hover{
-  content: url("/public/blue_saved_list.png");
+  content: url("/public/blue_saved_list_with_text.png");
   cursor: pointer;
 }
 
@@ -147,6 +147,7 @@ html{
     left: 50%;
     transform: translate(-50%, -50%);
     display: inline-block;
+    -webkit-text-stroke: 1px #EEE0EB;
 }
 
 a:link{

@@ -27,26 +27,29 @@ var displayPubs = {
     pubContainer.innerHTML = ""
   },
 
-  renderMarkers: function(pubList){
+  renderMarker: function(pub) {
     var colourMarker = "public/markers/blue_markerA.png"
+    // create info window for the element
+    var container = document.createElement("div")
+    var nameHTML = document.createElement("h3")
+    var addressHTML = document.createElement("p")
+    var postcodeHTML = document.createElement("p")
+
+    nameHTML.textContent = pub.name;
+    addressHTML.textContent = pub.address;
+    postcodeHTML.textContent = pub.postcode;
+
+    container.appendChild(nameHTML);
+    container.appendChild(addressHTML);
+    container.appendChild(postcodeHTML);
+
+    mapController.addColourMarker(pub, colourMarker, container)
+  },
+
+  renderMarkers: function(pubList){
     pubList.forEach(function(pub){
-
-      // create info window for the element
-      var container = document.createElement("div")
-      var nameHTML = document.createElement("h3")
-      var addressHTML = document.createElement("p")
-      var postcodeHTML = document.createElement("p")
-
-      nameHTML.textContent = pub.name;
-      addressHTML.textContent = pub.address;
-      postcodeHTML.textContent = pub.postcode;
-
-      container.appendChild(nameHTML);
-      container.appendChild(addressHTML);
-      container.appendChild(postcodeHTML);
-
-      mapController.addColourMarker(pub, colourMarker, container)
-    })
+      this.renderMarker(pub)
+    }.bind(this))
   }
 
 }

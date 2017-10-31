@@ -44,6 +44,7 @@ html{
   cursor: pointer;
 }
 
+
 #events-button:hover{
   content: url("/public/purple_events_with_text.png");
   cursor: pointer;

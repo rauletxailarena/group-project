@@ -35,6 +35,21 @@ html{
   margin-bottom: 20px;
 }
 
+#pubs-button:hover{
+  content: url("/public/purple_pub.png");
+  cursor: pointer;
+}
+
+#events-button:hover{
+  content: url("/public/purple_events.png");
+  cursor: pointer;
+}
+
+#restaurants-button:hover{
+  content: url("/public/purple_restaurant.png");
+  cursor: pointer;
+}
+
 #weather-info-container{
   display: flex;
   flex-direction: column;

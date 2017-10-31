@@ -97,6 +97,7 @@ html{
   background-image: -o-linear-gradient(top, #815389 , #439DD4 );
   background-image: linear-gradient(to bottom, #815389 , #439DD4 );
   text-decoration: none;
+  cursor: pointer;
 }
 
 .flex-box-element{
@@ -110,6 +111,24 @@ html{
     transform: translate(-50%, -50%);
     display: inline-block;
 }
+
+a:link{
+  color: black;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  color: #4a1d4c;
+  cursor: pointer;
+}
+
+a:active{
+  color: black;
+}
+
 
 #image-wrapper{
   position: relative;

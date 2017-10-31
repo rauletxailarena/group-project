@@ -30,9 +30,29 @@ html{
 }
 
 #filter-options img{
-  height: 200px;
+  height: 175px;
   width: auto;
   margin-bottom: 20px;
+}
+
+#pubs-button:hover{
+  content: url("/public/purple_pub.png");
+  cursor: pointer;
+}
+
+#events-button:hover{
+  content: url("/public/purple_events.png");
+  cursor: pointer;
+}
+
+#restaurants-button:hover{
+  content: url("/public/purple_restaurant.png");
+  cursor: pointer;
+}
+
+#favorites-button:hover{
+  content: url("/public/blue_saved_list.png");
+  cursor: pointer;
 }
 
 #weather-info-container{
@@ -48,16 +68,29 @@ html{
   justify-content: center;
 }
 
+#thermometer-image{
+  padding-left: 8%;
+}
+
 .weather-row{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
+  align-items: center;
+  text-align: left;
+  /*justify-content: center;*/
 }
 
 .weather-row p{
+  flex:1;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin: 5px 0px 5px 0px;
+}
+
+.weather-row div {
+  flex: 1;
 }
 
 .weather-row img{
@@ -97,6 +130,7 @@ html{
   background-image: -o-linear-gradient(top, #815389 , #439DD4 );
   background-image: linear-gradient(to bottom, #815389 , #439DD4 );
   text-decoration: none;
+  cursor: pointer;
 }
 
 .flex-box-element{
@@ -110,6 +144,24 @@ html{
     transform: translate(-50%, -50%);
     display: inline-block;
 }
+
+a:link{
+  color: black;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  color: #4a1d4c;
+  cursor: pointer;
+}
+
+a:active{
+  color: black;
+}
+
 
 #image-wrapper{
   position: relative;

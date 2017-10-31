@@ -1,3 +1,5 @@
+var mapController = require("../helpers/map_controller.js")
+
 var displayRestaurants = {
   renderRestaurant: function(restaurant) {
     var restaurantContainer = document.getElementById("restaurants-info-container")
@@ -28,6 +30,13 @@ var displayRestaurants = {
   resetRender: function(){
     var restaurantContainer = document.getElementById("restaurants-info-container")
     restaurantContainer.innerHTML = ""
+  },
+
+  renderMarkers: function(restaurantList){
+    var colourMarker = "public/markers/pink_markerA.png"
+    restaurantList.forEach(function(restaurant){
+      mapController.addColourMarker(restaurant, colourMarker)
+    })
   }
 }
 

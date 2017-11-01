@@ -107,8 +107,9 @@ UI.prototype.makeFavouritesButtonWork = function () {
   button.addEventListener("click", function(){
     // var lat = this.coordinates.lat;
     // var lng = this.coordinates.lng;
-    var favsList = favsDataHelper.getFavsByCoords(lat, lng, 0.01)
-    console.log(favsList)
+    // var favsList = favsDataHelper.getFavsByCoords(lat, lng, 0.01)
+    var favsList = favsDataHelper.getFavsByCoords()
+    console.log("Favourites List", favsList)
     // displayPubs.renderMarkers(pubList)
   }.bind(this));
 }

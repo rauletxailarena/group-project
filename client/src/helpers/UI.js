@@ -8,7 +8,9 @@ var favsDataHelper = require("./favs_helper.js")
 var displayWeather = require("../views/display_weather.js")
 var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
+var displayEvents = require("../views/display_events.js")
 var mapController = require("./map_controller")
+var displayHelper = require("../views/display_helper.js")
 
 // var NightOutEvent = require("../models/night_out_event.js")
 
@@ -110,10 +112,10 @@ UI.prototype.makeFavouritesButtonWork = function () {
   var button = document.getElementById("favorites-button")
   button.addEventListener("click", function(){
     var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
-      console.log("Favourites array", modelObjectArray)
-      // // NEED TO RENDER THE FAVOURITES LIST AS MARKERS HERE!
-      // displayFavourites.renderMarkers(pubList)
-    })
+      console.log("Make favourites callback returned, with model objects:", modelObjectArray)
+      // var listOfObjects = displayHelper.recreateItems(modelObjectArray)
+      displayHelper.renderItems(modelObjectArray)
+    }.bind(this))
   }.bind(this));
 }
 

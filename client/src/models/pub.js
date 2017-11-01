@@ -9,8 +9,8 @@ var Pub = function(input_object) {
     this.name = input_object.name
     this.address = input_object.address
     this.postcode = input_object.postcode
-    this.latitude = input_object.lat
-    this.longitude = input_object.lng
+    this.latitude = input_object.latitude
+    this.longitude = input_object.longitude
   } else {
     // input_object must be from external API
     this._id = null

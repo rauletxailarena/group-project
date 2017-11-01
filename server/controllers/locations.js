@@ -16,11 +16,7 @@ locationsRouter.get('/:id', function (req, res) {
   var locationId = req.params.id
   console.log("Locations hit, SHOW route. Data is:", locationId)
   queryHelper.find("locations", locationId, function (locationObject) {
-    // for (var obj in locationObjectArray) {
-      // if (obj["_id"] === locationId) {
-        res.json(locationObject)
-      // }
-    // }
+    res.json(locationObject)
   })
   console.log("Location ID", locationId)
 })
@@ -41,5 +37,7 @@ locationsRouter.post('/', function (req, res) {
 //     res.json(updatedLocationObjectArray)
 //   })
 // })
+
+// DELETE
 
 module.exports = locationsRouter

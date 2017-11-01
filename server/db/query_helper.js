@@ -34,9 +34,7 @@ queryHelper.find = function(theCollectionName, theIdValue, onQueryFinished){
       .toArray(function(err, docs){
         console.log(Date.now(), 'MongoClient', "queryHelper", "find", "connect", "find, array");
         console.log('docs', docs)
-        // var obj = docs[0]
-        // ;(obj) ? onQueryFinished(obj) : onQueryFinished("")
-        onQueryFinished(docs[0]) 
+        onQueryFinished(docs[0])
       })
   })
 }

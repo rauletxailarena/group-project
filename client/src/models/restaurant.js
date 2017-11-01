@@ -11,18 +11,18 @@ var Restaurant = function(input_object) {
     this.cuisines = input_object.cuisines
     this.menu = input_object.menu
     this.coords = {}
-    this.coords.lat = input_object.lat
-    this.coords.lng = input_object.lng
+    this.coords.lat = parseFloat(input_object.lat)
+    this.coords.lng = parseFloat(input_object.lng)
   } else {
     // input_object must be from external API
     this._id = null
-    this.name = input_object.name
-    // this.address = input_object.location.address
-    this.cuisines = input_object.cuisines
-    this.menu = input_object.menu
+    this.name = input_object.restaurant.name
+    this.address = input_object.restaurant.location.address
+    this.cuisines = input_object.restaurant.cuisines
+    this.menu = input_object.restaurant.menu
     this.coords = {}
-    this.coords.lat = input_object.location.latitude
-    this.coords.lng = input_object.location.longitude
+    this.latitude = parseFloat(input_object.restaurant.location.latitude)
+    this.longitude = parseFloat(input_object.restaurant.location.longitude)
   }
 }
 

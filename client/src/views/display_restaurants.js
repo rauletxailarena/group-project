@@ -32,7 +32,7 @@ var displayRestaurants = {
   },
 
   renderMarker: function(restaurant) {
-      var colourMarker = "public/markers/a_purple_pub_marker.png"
+      var colourMarker = "public/markers/a_purple_restaurant#_marker.png"
     // create info window for the element
     var container = document.createElement("div")
     var nameHTML = document.createElement("h3")

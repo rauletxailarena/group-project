@@ -9,6 +9,8 @@ var makeRestaurantsButtonWork = function(){
     // make request for restaurants
     restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data) {
       console.log("Restaurants", data.restaurants)
+
+
       // displayRestaurants.render(data.restaurants)
     })
   })

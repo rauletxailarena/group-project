@@ -1,6 +1,9 @@
 var queryHelper = require('../db/query_helper.js')
 var express = require('express')
 var locationsRouter = express.Router()
+var bodyParser = require("body-parser")
+locationsRouter.use(bodyParser.json())
+locationsRouter.use(bodyParser.urlencoded({extended: true}))
 
 // RESTful routes being set up here
 
@@ -24,6 +27,7 @@ locationsRouter.get('/:id', function (req, res) {
 // CREATE
 locationsRouter.post('/', function (req, res) {
   var jsonData = req.body
+  console.log(req.body);
   queryHelper.save("locations", jsonData, function (updatedLocationObjectArray) {
     res.json(updatedLocationObjectArray)
   })

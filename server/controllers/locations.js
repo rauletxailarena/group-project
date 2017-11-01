@@ -31,7 +31,7 @@ locationsRouter.post('/', function (req, res) {
 
 // // UPDATE
 // locationsRouter.put('/:id', function (req, res) {
-//   var locationPosInArray = req.params.id
+//   var locationId = req.params.id
 //   var newLocationInJsonFormat = req.body
 //   queryHelper.save("locations", jsonData, function (updatedLocationObjectArray) {
 //     res.json(updatedLocationObjectArray)
@@ -39,5 +39,11 @@ locationsRouter.post('/', function (req, res) {
 // })
 
 // DELETE
+locationsRouter.delete('/:id', function (req, res) {
+  var locationId = req.params.id
+  queryHelper.delete("locations", locationId, function (removedObject) {
+    res.json(removedObject)
+  })
+})
 
 module.exports = locationsRouter

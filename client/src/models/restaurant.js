@@ -10,9 +10,8 @@ var Restaurant = function(input_object) {
     this.address = input_object.address
     this.cuisines = input_object.cuisines
     this.menu = input_object.menu
-    this.coords = {}
-    this.coords.lat = parseFloat(input_object.lat)
-    this.coords.lng = parseFloat(input_object.lng)
+    this.latitude = parseFloat(input_object.lat)
+    this.longitude = parseFloat(input_object.lng)
   } else {
     // input_object must be from external API
     this._id = null
@@ -20,7 +19,6 @@ var Restaurant = function(input_object) {
     this.address = input_object.restaurant.location.address
     this.cuisines = input_object.restaurant.cuisines
     this.menu = input_object.restaurant.menu
-    this.coords = {}
     this.latitude = parseFloat(input_object.restaurant.location.latitude)
     this.longitude = parseFloat(input_object.restaurant.location.longitude)
   }

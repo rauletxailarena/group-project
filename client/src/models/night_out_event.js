@@ -10,10 +10,10 @@ var NightOutEvent = function(input_object) {
     // input_object must be from our Mongo DB API
     this._id = input_object._id
     this.name = input_object.name
-    this.venue = input_object.venue
     this.town = input_object.town
-    this.postcode = input_object.postcode
     this.tags = input_object.tags
+    this.venue = input_object.venue
+    this.postcode = input_object.postcode
     this.description = input_object.description
     this.latitude = input_object.latitude
     this.longitude = input_object.longitude
@@ -21,10 +21,10 @@ var NightOutEvent = function(input_object) {
     // input_object must be from external API
     this._id = null
     this.name = input_object.name
-    this.venue = input_object.schedules[0].place.name
     this.town = input_object.town
-    this.postcode = input_object.schedules[0].place.postal_code
     this.tags = input_object.tags
+    this.venue = input_object.schedules[0].place.name
+    this.postcode = input_object.schedules[0].place.postal_code
     this.description = input_object.descriptions[0].description
     this.latitude = input_object.schedules[0].place.lat
     this.longitude = input_object.schedules[0].place.lng

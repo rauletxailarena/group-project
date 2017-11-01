@@ -26,8 +26,4 @@ var Restaurant = function(input_object) {
   }
 }
 
-// Restaurant.prototype.methodName = function() {
-//   return null
-// }
-
 module.exports = Restaurant

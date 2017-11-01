@@ -22,8 +22,4 @@ var Pub = function(input_object) {
   }
 }
 
-// Pub.prototype.methodName = function() {
-//   return null
-// }
-
 module.exports = Pub

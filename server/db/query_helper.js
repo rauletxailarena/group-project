@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient
+var ObjectID = require('mongodb').ObjectID
 
 var queryHelper = {}
 
@@ -21,6 +22,24 @@ queryHelper.all = function(theCollectionName, onQueryFinished){
   })
 }
 
+// Example call: queryHelper.find('pubs', "a1a1a1a1aa..." callback)
+queryHelper.find = function(theCollectionName, theIdValue, onQueryFinished){
+  console.log(Date.now(), 'MongoClient', "queryHelper", "find method on", theCollectionName);
+  MongoClient.connect(this.url, function(err, db){
+    console.log(Date.now(), 'MongoClient', "queryHelper", "find", "connect method");
+    var theCollection = db.collection(theCollectionName)
+    var objectID = new ObjectID(theIdValue)
+    var objectIDWrap = { _id: objectID }
+    theCollection
+      .find(objectIDWrap)
+      .toArray(function(err, docs){
+        console.log(Date.now(), 'MongoClient', "queryHelper", "find", "connect", "find, array");
+        console.log('docs', docs)
+        onQueryFinished(docs[0])
+      })
+  })
+}
+
 // Example call: queryHelper.save('pubs', pubJsonData, callback)
 queryHelper.save = function(theCollectionName, theJsonData, onQueryFinished){
   console.log(Date.now(), 'MongoClient', "queryHelper", "save method on", theCollectionName);
@@ -32,6 +51,22 @@ queryHelper.save = function(theCollectionName, theJsonData, onQueryFinished){
     // Get the list again, since another user might have added to it
     theCollection.find().toArray(function(err, docs){
       console.log(Date.now(), 'MongoClient', "queryHelper", "save", "connect", "find, array");
+      onQueryFinished(docs)
+    })
+  })
+}
+
+// Example call: queryHelper.find('pubs', "a1a1a1a1aa..." callback)
+queryHelper.delete = function(theCollectionName, theIdValue, onQueryFinished){
+  console.log(Date.now(), 'MongoClient', "queryHelper", "delete method on", theCollectionName);
+  MongoClient.connect(this.url, function(err, db){
+    console.log(Date.now(), 'MongoClient', "queryHelper", "delete", "connect method");
+    var theCollection = db.collection(theCollectionName)
+    var objectID = new ObjectID(theIdValue)
+    var objectIDWrap = { _id: objectID }
+    theCollection.remove(objectIDWrap, function(err, docs){
+      console.log(Date.now(), 'MongoClient', "queryHelper", "delete", "connect");
+      console.log('docs', docs)
       onQueryFinished(docs)
     })
   })

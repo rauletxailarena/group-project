@@ -4,10 +4,11 @@ var NightOutEvent = function(input_object) {
   // When saving an object to Mongo DB,
   // set the .mongo tag so that when it comes out again
   // we use the correct If statement branch in the constructor!
-  var isFromMongoDB = (input_object.mongo) ? true : false
+  var isFromMongoDB = (input_object._id) ? true : false
 
   if (isFromMongoDB) {
-    // input_object must be from our Mongo DB
+    // input_object must be from our Mongo DB API
+    this._id = input_object._id
     this.name = input_object.name
     this.venue = input_object.venue
     this.town = input_object.town
@@ -18,7 +19,8 @@ var NightOutEvent = function(input_object) {
     this.coords.lat = input_object.lat
     this.coords.lng = input_object.lng
   } else {
-    // input_object must be from API
+    // input_object must be from external API
+    this._id = null
     this.name = input_object.name
     this.venue = input_object.place_name
     this.town = input_object.town

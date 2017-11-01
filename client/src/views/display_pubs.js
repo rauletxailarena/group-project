@@ -30,7 +30,7 @@ var displayPubs = {
   },
 
   renderMarker: function(pub) {
-    var colourMarker = "public/markers/a_purple_pub_marker.png"
+    var colourMarker = "public/markers/a_yellow_pub_marker.png"
     // create info window for the element
     var container = document.createElement("div")
     var nameHTML = document.createElement("h3")

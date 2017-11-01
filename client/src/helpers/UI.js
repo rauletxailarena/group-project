@@ -98,11 +98,12 @@ UI.prototype.makeRestaurantsButtonWork = function() {
 UI.prototype.makeEventsButtonWork = function() {
   var button = document.getElementById("events-button")
 
+
   button.addEventListener("click", function(){
-    var lat = this.coordinates.lat;
-    var lng = this.coordinates.lng;
     eventsHelper.getRequest( function (data){
-      console.log("All events", data)
+      var lat = this.coordinates.lat;
+      var lng = this.coordinates.lng;
+      
     }.bind(this))
   }.bind(this))
 }

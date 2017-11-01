@@ -83,12 +83,12 @@ UI.prototype.makeRestaurantsButtonWork = function() {
       var modelObject = new Restaurant(apiObject)
       var jsonString = JSON.stringify(modelObject)
       var jsonObject = JSON.parse(jsonString)
-      var modeledObject2 = new Restaurant(jsonString)
+      // var modeledObject2 = new Restaurant(jsonString)
       console.log("api object: ", apiObject);
       console.log("model object: ", modelObject);
       console.log("json string: ", jsonString);
       console.log("json object: ", jsonObject);
-      console.log("modeledObject2: ", modeledObject2);
+      // console.log("modeledObject2: ", modeledObject2);
 
       console.log("render markers called");
     }.bind(this))

@@ -36,9 +36,7 @@ var displayPubs = {
     var nameHTML = document.createElement("h3")
     var addressHTML = document.createElement("p")
     var postcodeHTML = document.createElement("p")
-    // var form = document.createElement("form")
-    // form.action = "http://localhost:3000/api/locations";
-    // form.method = "post";
+
     var button = document.createElement("button")
     button.addEventListener("click", function(eventObject){
       console.log("button clicked", pub);
@@ -53,8 +51,7 @@ var displayPubs = {
       console.log(stringObject);
       xhr.send(stringObject);
     })
-    button.value = "Test button"
-    // form.appendChild(button);
+    button.textContent = "Add to my plan";
 
     nameHTML.textContent = pub.name;
     addressHTML.textContent = pub.address;

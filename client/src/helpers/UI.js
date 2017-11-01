@@ -107,15 +107,14 @@ UI.prototype.render = function () {
 };
 
 UI.prototype.makeFavouritesButtonWork = function () {
-  console.log("Make favourites button work started")
   var button = document.getElementById("favorites-button")
   button.addEventListener("click", function(){
     var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
-      console.log("Make favourites callback returned, with model objects:", modelObjectArray)
-      // displayPubs.renderMarkers(pubList)
+      console.log("Favourites array", modelObjectArray)
+      // // NEED TO RENDER THE FAVOURITES LIST AS MARKERS HERE!
+      // displayFavourites.renderMarkers(pubList)
     })
-  }.bind(this));     // DOES THIS NEED TO BE BOUND?
-  // });     // DOES THIS NEED TO BE BOUND?
+  }.bind(this));
 }
 
 module.exports = UI;

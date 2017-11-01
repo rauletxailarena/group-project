@@ -15,7 +15,7 @@ var Restaurant = function(input_object) {
     this.longitude = parseFloat(input_object.lng)
   } else {
     // input_object must be from external API
-    console.log(input_object);
+    // console.log(input_object);
     this._id = null
     this.name = input_object.restaurant.name
     this.address = input_object.restaurant.location.address

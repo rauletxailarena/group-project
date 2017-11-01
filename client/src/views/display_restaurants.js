@@ -49,7 +49,7 @@ var displayRestaurants = {
       xhr.addEventListener('load', function(){
         console.log("Saved object");
       })
-      console.log(restaurant);
+      // console.log(restaurant);
       // var modelObject = new Restaurant(restaurant)
       var stringObject = JSON.stringify(restaurant)
       xhr.send(stringObject);
@@ -73,10 +73,10 @@ var displayRestaurants = {
     restaurantList.forEach(function(apiRestaurant){
       var restaurant = new Restaurant(apiRestaurant)
       this.renderMarker(restaurant)
-      console.log("coords: ", restaurant.coords);
+      // console.log("coords: ", restaurant.coords);
     }.bind(this))
   }
 }
 
 
-module.exports = displayRestaurants
+module.exports = displayRestaurants 

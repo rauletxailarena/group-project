@@ -8,10 +8,10 @@ var requestHelper = require('./request_helper.js')
 var favsHelper = {
 
   getAllFavs: function(callback){
-    console.log("Favourites helper started")
+    // console.log("Favourites helper started")
     var url = "http://localhost:3000/api/locations"
     requestHelper.getRequest(url, function(arrayOfObjectsFromMongo){
-      console.log("Favourites helper get request started")
+      // console.log("Favourites helper get request started")
       var modelObjectArray = []
       for (var obj of arrayOfObjectsFromMongo) {
         switch(obj.type) {

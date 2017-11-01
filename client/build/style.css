@@ -40,18 +40,18 @@ html{
 }
 
 #pubs-button:hover {
-  content: url("/public/purple_pub_with_text.png");
+  content: url("/public/new_purple_pub_with_text.png");
   cursor: pointer;
 }
 
 
 #events-button:hover{
-  content: url("/public/purple_events_with_text.png");
+  content: url("/public/new_purple_events_with_text.png");
   cursor: pointer;
 }
 
 #restaurants-button:hover{
-  content: url("/public/purple_restaurant_with_text.png");
+  content: url("/public/new_purple_restaurant_with_text.png");
   cursor: pointer;
 }
 

@@ -54,7 +54,6 @@ UI.prototype.makeWelcomeButtonWork = function(){
 
     // request weather information
     weatherRequestHelper.getCurrentWeatherByPostCode(postCode, function(data) {
-      console.log(data);
       displayWeather.render(data)
     })
   }.bind(this))
@@ -67,6 +66,7 @@ UI.prototype.makePubsButtonWork = function () {
     var lat = this.coordinates.lat;
     var lng = this.coordinates.lng;
     var pubList = pubDataHelper.getPubsByCoords(lat, lng, 0.01)
+    mapController.removeAllMarkers();
     displayPubs.renderMarkers(pubList)
   }.bind(this));
 }
@@ -79,6 +79,7 @@ UI.prototype.makeRestaurantsButtonWork = function() {
     var lng = this.coordinates.lng;
     restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data){
       console.log(data.restaurants);
+      mapController.removeAllMarkers();
       displayRestaurants.renderMarkers(data.restaurants)
       console.log("render markers called");
     }.bind(this))
@@ -95,6 +96,7 @@ UI.prototype.makeEventsButtonWork = function() {
     var daysAhead = 1
     eventRequestHelper.getEventsByCoords(lat, lng, radiusInMiles, daysAhead, function (data){
       console.log("All events", data)
+      mapController.removeAllMarkers();
       displayEvents.renderMarkers(data)
       // var theEventObject = data[0]
       // var theEventModelledObject = new NightOutEvent(theEventObject)
@@ -114,6 +116,7 @@ UI.prototype.makeFavouritesButtonWork = function () {
     var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
       console.log("Make favourites callback returned, with model objects:", modelObjectArray)
       // var listOfObjects = displayHelper.recreateItems(modelObjectArray)
+      mapController.removeAllMarkers()
       displayHelper.renderItems(modelObjectArray)
     }.bind(this))
   }.bind(this));

@@ -93,6 +93,7 @@ UI.prototype.makeEventsButtonWork = function() {
     var daysAhead = 1
     eventRequestHelper.getEventsByCoords(lat, lng, radiusInMiles, daysAhead, function (data){
       console.log("All events", data)
+      displayEvents.renderMarkers(data)
       // var theEventObject = data[0]
       // var theEventModelledObject = new NightOutEvent(theEventObject)
       // console.log("First event as returned object", theEventObject)

@@ -1,4 +1,5 @@
 var mapController = require("../helpers/map_controller.js")
+var Restaurant = require("../models/restaurant.js")
 
 var displayRestaurants = {
   renderRestaurant: function(restaurant) {
@@ -31,7 +32,7 @@ var displayRestaurants = {
   },
 
   renderMarker: function(restaurant) {
-    var colourMarker = "public/markers/a_purple_restaurant_marker.png"
+      var colourMarker = "public/markers/a_purple_pub_marker.png"
     // create info window for the element
     var container = document.createElement("div")
     var nameHTML = document.createElement("h3")
@@ -52,8 +53,10 @@ var displayRestaurants = {
   },
 
   renderMarkers: function(restaurantList){
-    restaurantList.forEach(function(restaurant){
+    restaurantList.forEach(function(apiRestaurant){
+      var restaurant = new Restaurant(apiRestaurant)
       this.renderMarker(restaurant)
+      console.log("coords: ", restaurant.coords);
     }.bind(this))
   }
 }

@@ -15,12 +15,12 @@ var Restaurant = function(input_object) {
   } else {
     // input_object must be from API
     this.name = input_object.name
-    this.address = input_object.location.address
+    // this.address = input_object.location.address
     this.cuisines = input_object.cuisines
     this.menu = input_object.menu
     this.coords = {}
-    this.coords.lat = input_object.latitude
-    this.coords.lng = input_object.longitude
+    this.coords.lat = input_object.location.latitude
+    this.coords.lng = input_object.location.longitude
   }
 }
 

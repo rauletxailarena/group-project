@@ -73,7 +73,8 @@ UI.prototype.makeRestaurantsButtonWork = function() {
     var lng = this.coordinates.lng;
     restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data){
       console.log(data.restaurants);
-      // displayRestaurants.renderMarkers(data.restaurants)
+      displayRestaurants.renderMarkers(data.restaurants)
+      console.log("render markers called");
     }.bind(this))
   }.bind(this))
 }

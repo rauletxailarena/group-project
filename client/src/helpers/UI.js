@@ -10,6 +10,7 @@ var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
 var displayEvents = require("../views/display_events.js")
 var mapController = require("./map_controller")
+var displayHelper = require("../views/display_helper.js")
 
 // var NightOutEvent = require("../models/night_out_event.js")
 
@@ -113,10 +114,10 @@ UI.prototype.makeFavouritesButtonWork = function () {
   button.addEventListener("click", function(){
     var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
       console.log("Make favourites callback returned, with model objects:", modelObjectArray)
-      // displayPubs.renderMarkers(pubList)
-    })
-  }.bind(this));     // DOES THIS NEED TO BE BOUND?
-  // });     // DOES THIS NEED TO BE BOUND?
+      // var listOfObjects = displayHelper.recreateItems(modelObjectArray)
+      displayHelper.renderItems(modelObjectArray)
+    }.bind(this))
+  }.bind(this));
 }
 
 module.exports = UI;

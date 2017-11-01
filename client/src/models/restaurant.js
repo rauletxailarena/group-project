@@ -11,8 +11,8 @@ var Restaurant = function(input_object) {
     this.address = input_object.address
     this.cuisines = input_object.cuisines
     this.menu = input_object.menu
-    this.latitude = parseFloat(input_object.lat)
-    this.longitude = parseFloat(input_object.lng)
+    this.latitude = parseFloat(input_object.latitude)
+    this.longitude = parseFloat(input_object.longitude)
   } else {
     // input_object must be from external API
     console.log(input_object);

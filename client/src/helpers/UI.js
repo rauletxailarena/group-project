@@ -116,26 +116,16 @@ UI.prototype.render = function () {
   this.makeWelcomeButtonWork();
 };
 
-
-
-
-
 UI.prototype.makeFavouritesButtonWork = function () {
+  console.log("Make favourites button work started")
   var button = document.getElementById("favorites-button")
-
   button.addEventListener("click", function(){
-    // var lat = this.coordinates.lat;
-    // var lng = this.coordinates.lng;
-    // var favsList = favsDataHelper.getFavsByCoords(lat, lng, 0.01)
-    var favsList = favsDataHelper.getFavsByCoords()
-    console.log("Favourites List", favsList)
-    // displayPubs.renderMarkers(pubList)
-  }.bind(this));
+    var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
+      console.log("Make favourites callback returned, with model objects:", modelObjectArray)
+      // displayPubs.renderMarkers(pubList)
+    })
+  }.bind(this));     // DOES THIS NEED TO BE BOUND?
+  // });     // DOES THIS NEED TO BE BOUND?
 }
-
-
-
-
-
 
 module.exports = UI;

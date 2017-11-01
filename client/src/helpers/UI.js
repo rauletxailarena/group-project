@@ -46,6 +46,7 @@ UI.prototype.makeWelcomeButtonWork = function(){
       this.makePubsButtonWork();
       this.makeRestaurantsButtonWork();
       this.makeEventsButtonWork();
+      this.makeFavouritesButtonWork();
 
     }.bind(this))
 
@@ -82,10 +83,12 @@ UI.prototype.makeRestaurantsButtonWork = function() {
       var modelObject = new Restaurant(apiObject)
       var jsonString = JSON.stringify(modelObject)
       var jsonObject = JSON.parse(jsonString)
+      var modeledObject2 = new Restaurant(jsonString)
       console.log("api object: ", apiObject);
       console.log("model object: ", modelObject);
       console.log("json string: ", jsonString);
       console.log("json object: ", jsonObject);
+      console.log("modeledObject2: ", modeledObject2);
 
       console.log("render markers called");
     }.bind(this))
@@ -102,6 +105,10 @@ UI.prototype.makeEventsButtonWork = function() {
       console.log("All events", data)
     }.bind(this))
   }.bind(this))
+}
+
+UI.prototype.makeFavouritesButtonWork = function(){
+
 }
 
 UI.prototype.render = function () {

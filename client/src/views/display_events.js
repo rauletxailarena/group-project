@@ -3,7 +3,7 @@ var Event = require("../models/night_out_event.js")
 var displayEvents = {
 
   renderMarker: function(event) {
-    var colourMarker = "public/markers/a_purple_events_marker.png"
+    var colourMarker = "public/markers/a_blue_events_marker.png"
     // create info window for the element
     var container = document.createElement("div")
     var nameHTML = document.createElement("h3")

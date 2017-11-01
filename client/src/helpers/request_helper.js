@@ -1,19 +1,24 @@
 var requestHelper = {}
+//
+// requestHelper.getRequest = function (url, callback) {
+//   var xhr = new XMLHttpRequest()
+//   xhr.open('GET', url)
+//
+//   xhr.addEventListener('load', function () {
+//     var jsonString = xhr.responseText
+//     var data = JSON.parse(jsonString)
+//     callback(data)
+//   })
+//
+//   xhr.send()
+// }
 
 requestHelper.getRequest = function (url, callback) {
-  var xhr = new XMLHttpRequest()
-  xhr.open('GET', url)
-
-  xhr.addEventListener('load', function () {
-    var jsonString = xhr.responseText
-    var data = JSON.parse(jsonString)
-    callback(data)
-  })
-
-  xhr.send()
+  this.getRequestWithHeaders(url, [], callback)
 }
 
 requestHelper.getRequestWithHeaders = function (url, headerArray, callback) {
+  // console.log("Request Helper, Get Request With Headers, This is", this)
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
 
@@ -46,9 +51,7 @@ requestHelper.postRequest = function (url, callback, payload) {
   xhr.setRequestHeader('Content-Type', 'application/json')
 
   var jsonString = JSON.stringify(payload)
-
   xhr.send(jsonString)
-
 }
 
 

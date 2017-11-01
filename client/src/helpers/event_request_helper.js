@@ -41,16 +41,16 @@ var eventRequestHelper = {
     var nearQueryText = calculateNearQuery(lat, lng, radiusMiles)
     var dateQueryText = calculateDateQuery(daysAhead)
     url += "?" + nearQueryText + "&" + dateQueryText
-    console.log("URL", url)
+    // console.log("URL", url)
 
     var headerArray = [
        { header: "Authorization", value: "Bearer " + hiddenListKey }
     ]
 
-    console.log("Headers", headerArray)
+    // console.log("Headers", headerArray)
 
     requestHelper.getRequestWithHeaders(url, headerArray, function(arrayFromEventAPI){
-      console.log("Events helper get request started")
+      // console.log("Events helper get request started")
       callback(arrayFromEventAPI)
     })
   }

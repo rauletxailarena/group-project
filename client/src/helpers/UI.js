@@ -111,7 +111,6 @@ UI.prototype.render = function () {
 };
 
 UI.prototype.makeFavouritesButtonWork = function () {
-  console.log("Make favourites button work started")
   var button = document.getElementById("favorites-button")
   button.addEventListener("click", function(){
     var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){

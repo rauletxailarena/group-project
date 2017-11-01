@@ -20,23 +20,6 @@ var displayEvents = {
     // tagsHTML.textContent = event.tags;
 
     var button = document.createElement("button")
-
-    // // OLD WAY
-    // button.addEventListener("click", function(eventObject){
-    //   console.log("button clicked", event);
-    //   var xhr = new XMLHttpRequest()
-    //   xhr.open("POST", "http://localhost:3000/api/locations" )
-    //   xhr.setRequestHeader("Content-Type", "application/json")
-    //   xhr.addEventListener('load', function(){
-    //     console.log("Saved object");
-    //   })
-    //
-    //   var stringObject = JSON.stringify(event)
-    //   console.log(stringObject);
-    //   xhr.send(stringObject);
-    // })
-
-    // NEW WAY
     button.addEventListener("click", function(eventObject){
       var url = "http://localhost:3000/api/locations"
       var callback = function(postResponseData){
@@ -63,7 +46,7 @@ var displayEvents = {
     eventsList.forEach(function(apiEvent){
       var event = new Event(apiEvent)
       this.renderMarker(event)
-      console.log(event)
+      // console.log(event)
     }.bind(this));
   }
 

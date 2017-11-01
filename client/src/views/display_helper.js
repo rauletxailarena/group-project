@@ -7,7 +7,7 @@ var Event = require("../models/night_out_event.js")
 
 var displayHelper = {
   render: function(item) {
-    console.log("Rendering item:", item);
+    // console.log("Rendering item:", item);
     switch(item.type) {
       case "pub":
         displayPubs.renderMarker(item);

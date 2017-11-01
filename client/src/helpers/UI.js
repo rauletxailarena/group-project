@@ -4,6 +4,7 @@ var weatherRequestHelper = require("./weather_request_helper")
 var restaurantRequestHelper = require("./restaurant_request_helper")
 var eventsHelper = require("./events_helper")
 var pubDataHelper = require("./pub_data/pub_data_helper.js")
+var favsDataHelper = require("./favs_helper.js")
 var displayWeather = require("../views/display_weather.js")
 var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
@@ -116,7 +117,16 @@ UI.prototype.render = function () {
   this.makeWelcomeButtonWork();
 };
 
-
-
+UI.prototype.makeFavouritesButtonWork = function () {
+  console.log("Make favourites button work started")
+  var button = document.getElementById("favorites-button")
+  button.addEventListener("click", function(){
+    var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
+      console.log("Make favourites callback returned, with model objects:", modelObjectArray)
+      // displayPubs.renderMarkers(pubList)
+    })
+  }.bind(this));     // DOES THIS NEED TO BE BOUND?
+  // });     // DOES THIS NEED TO BE BOUND?
+}
 
 module.exports = UI;

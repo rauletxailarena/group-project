@@ -70,7 +70,8 @@ var displayPubs = {
   },
 
   renderMarkers: function(pubList){
-    pubList.forEach(function(pub){
+    pubList.forEach(function(apiPub){
+      var pub = new Pub(apiPub)
       this.renderMarker(pub)
     }.bind(this))
   }

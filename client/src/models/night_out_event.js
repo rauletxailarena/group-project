@@ -21,9 +21,9 @@ var NightOutEvent = function(input_object) {
     // input_object must be from external API
     this._id = null
     this.name = input_object.name
-    this.venue = input_object.place_name
+    this.venue = input_object.schedules[0].place.name
     this.town = input_object.town
-    this.postcode = input_object.postal_code
+    this.postcode = input_object.schedules[0].place.postal_code
     this.tags = input_object.tags
     this.description = input_object.descriptions[0].description
     this.latitude = input_object.schedules[0].place.lat

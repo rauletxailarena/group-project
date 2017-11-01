@@ -8,6 +8,7 @@ var favsDataHelper = require("./favs_helper.js")
 var displayWeather = require("../views/display_weather.js")
 var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
+var displayEvents = require("../views/display_events.js")
 var mapController = require("./map_controller")
 
 // var NightOutEvent = require("../models/night_out_event.js")

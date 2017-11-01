@@ -1,4 +1,5 @@
 var mapController = require("../helpers/map_controller.js")
+var requestHelper = require("../helpers/request_helper.js")
 var Restaurant = require("../models/restaurant.js")
 
 var displayRestaurants = {
@@ -39,9 +40,9 @@ var displayRestaurants = {
     var addressHTML = document.createElement("p")
     var cuisinesHTML = document.createElement("p")
     var menuURL = document.createElement("a")
-
-
     var button = document.createElement("button")
+
+    // This is what currently happens. Requesting done on the UI button...
     button.addEventListener("click", function(eventObject){
       var xhr = new XMLHttpRequest()
       xhr.open("POST", "http://localhost:3000/api/locations" )
@@ -50,10 +51,20 @@ var displayRestaurants = {
         console.log("Saved object");
       })
       console.log(restaurant);
-      // var modelObject = new Restaurant(restaurant)
       var stringObject = JSON.stringify(restaurant)
       xhr.send(stringObject);
     })
+
+    // // This is what should happen! Request centrally.
+    // button.addEventListener("click", function(eventObject){
+    //   var url = "http://localhost:3000/api/locations"
+    //   var callback = function(postResponseData){
+    //     console.log("Saved restaurant, with response:", postResponseData)
+    //   }
+    //   var payload = new Restaurant(restaurant)
+    //   requestHelper.postRequest(url, callback, payload)
+    // })
+
     button.textContent = "Add to my plan";
 
     nameHTML.textContent = restaurant.name;
@@ -73,7 +84,7 @@ var displayRestaurants = {
     restaurantList.forEach(function(apiRestaurant){
       var restaurant = new Restaurant(apiRestaurant)
       this.renderMarker(restaurant)
-      console.log("coords: ", restaurant.coords);
+      // console.log("coords: ", restaurant.coords);
     }.bind(this))
   }
 }

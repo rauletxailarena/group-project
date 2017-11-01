@@ -40,7 +40,7 @@ var displayRestaurants = {
     var addressHTML = document.createElement("p")
     var cuisinesHTML = document.createElement("p")
     var menuURL = document.createElement("a")
-    
+
     var button = document.createElement("button")
     button.addEventListener("click", function(eventObject){
       var url = "http://localhost:3000/api/locations"
@@ -50,8 +50,8 @@ var displayRestaurants = {
       var payload = restaurant
       requestHelper.postRequest(url, callback, payload)
     })
-
     button.textContent = "Add to my plan";
+    
     nameHTML.textContent = restaurant.name;
     addressHTML.textContent = restaurant.address;
     cuisinesHTML.textContent = restaurant.cuisines;

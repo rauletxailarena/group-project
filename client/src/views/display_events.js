@@ -28,8 +28,8 @@ var displayEvents = {
       var payload = event
       requestHelper.postRequest(url, callback, payload)
     })
-
     button.textContent = "Add to my plan";
+    
     container.appendChild(nameHTML);
     container.appendChild(descriptionHTML);
     container.appendChild(venueHTML);

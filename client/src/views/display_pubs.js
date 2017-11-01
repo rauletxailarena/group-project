@@ -31,6 +31,7 @@ var displayPubs = {
   },
 
   renderMarker: function(pub) {
+    console.log("Render marker on a pub")
     var colourMarker = "public/markers/a_yellow_pub_marker.png"
     // create info window for the element
     var container = document.createElement("div")
@@ -38,8 +39,8 @@ var displayPubs = {
     var addressHTML = document.createElement("p")
     var postcodeHTML = document.createElement("p")
 
-    var button = document.createElement("button")
-    button.addEventListener("click", function(eventObject){
+    var saveButton = document.createElement("button")
+    saveButton.addEventListener("click", function(eventObject){
       var url = "http://localhost:3000/api/locations"
       var callback = function(postResponseData){
         console.log("Saved pub, with response:", postResponseData)
@@ -47,8 +48,24 @@ var displayPubs = {
       var payload = pub
       requestHelper.postRequest(url, callback, payload)
     })
+    saveButton.textContent = "Add to my plan";
 
-    button.textContent = "Add to my plan";
+    var mongoId = pub["_id"]
+    console.log("Mongo ID", mongoId, pub)
+    if (mongoId) {
+      console.log("Delete is available")
+      var deleteButton = document.createElement("button")
+      deleteButton.addEventListener("click", function(eventObject){
+        console.log("Delete button clicked")
+        var url = "http://localhost:3000/api/locations" + "/" + mongoId
+        var callback = function(postResponseData){
+          console.log("Deleted pub, with response:", postResponseData)
+        }
+        requestHelper.deleteRequest(url, callback)
+      })
+      deleteButton.textContent = "Remove from my plan";
+    }
+
     nameHTML.textContent = pub.name;
     addressHTML.textContent = pub.address;
     postcodeHTML.textContent = pub.postcode;
@@ -56,7 +73,10 @@ var displayPubs = {
     container.appendChild(nameHTML);
     container.appendChild(addressHTML);
     container.appendChild(postcodeHTML);
-    container.appendChild(button)
+    container.appendChild(saveButton)
+    if (mongoId) {
+      container.appendChild(deleteButton)
+    }
     // container.appendChild(form)
 
     mapController.addColourMarker(pub, colourMarker, container)

@@ -1,5 +1,6 @@
 var mapController = require("../helpers/map_controller.js")
 
+
 var displayPubs = {
   renderPub: function(pub) {
     var pubContainer = document.getElementById("pubs-info-container")

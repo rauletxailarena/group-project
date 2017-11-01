@@ -50,8 +50,8 @@ var displayRestaurants = {
         console.log("Saved object");
       })
       console.log(restaurant);
-      var modelObject = new Restaurant(restaurant)
-      var stringObject = JSON.stringify(modelObject)
+      // var modelObject = new Restaurant(restaurant)
+      var stringObject = JSON.stringify(restaurant)
       xhr.send(stringObject);
     })
     button.textContent = "Add to my plan";

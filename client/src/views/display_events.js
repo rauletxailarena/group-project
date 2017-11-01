@@ -3,7 +3,7 @@ var mapController = require("../helpers/map_controller.js")
 var displayEvents = {
 
   renderMarker: function(event) {
-    var colourMarker = "public/markers/yellow_markerA.png"
+    var colourMarker = "public/markers/a_purple_events_marker.png"
     // create info window for the element
     var container = document.createElement("div")
     var nameHTML = document.createElement("h3")

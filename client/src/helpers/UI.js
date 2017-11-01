@@ -4,6 +4,7 @@ var weatherRequestHelper = require("./weather_request_helper")
 var restaurantRequestHelper = require("./restaurant_request_helper")
 var eventsHelper = require("./events_helper")
 var pubDataHelper = require("./pub_data/pub_data_helper.js")
+var favsDataHelper = require("./favs_helper.js")
 var displayWeather = require("../views/display_weather.js")
 var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
@@ -43,6 +44,7 @@ UI.prototype.makeWelcomeButtonWork = function(){
       this.makePubsButtonWork();
       this.makeRestaurantsButtonWork();
       this.makeEventsButtonWork();
+      this.makeFavouritesButtonWork();
 
     }.bind(this))
 
@@ -94,6 +96,24 @@ UI.prototype.makeEventsButtonWork = function() {
 UI.prototype.render = function () {
   this.makeWelcomeButtonWork();
 };
+
+
+
+
+
+UI.prototype.makeFavouritesButtonWork = function () {
+  var button = document.getElementById("favorites-button")
+
+  button.addEventListener("click", function(){
+    // var lat = this.coordinates.lat;
+    // var lng = this.coordinates.lng;
+    var favsList = favsDataHelper.getFavsByCoords(lat, lng, 0.01)
+    console.log(favsList)
+    // displayPubs.renderMarkers(pubList)
+  }.bind(this));
+}
+
+
 
 
 

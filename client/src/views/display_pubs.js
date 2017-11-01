@@ -44,11 +44,11 @@ var displayPubs = {
       var callback = function(postResponseData){
         console.log("Saved pub, with response:", postResponseData)
       }
-      var payload = new Pub(pub)
+      var payload = pub
       requestHelper.postRequest(url, callback, payload)
     })
-    button.textContent = "Add to my plan";
 
+    button.textContent = "Add to my plan";
     nameHTML.textContent = pub.name;
     addressHTML.textContent = pub.address;
     postcodeHTML.textContent = pub.postcode;

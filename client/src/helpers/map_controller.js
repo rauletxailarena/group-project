@@ -12,6 +12,14 @@ var mapController = {
     var longitude = parseFloat(item.longitude);
     var coords = {lat: latitude, lng: longitude};
     map.addMarker(coords, marker, infoWindow);
+  },
+  removeAllMarkers: function(){
+    if (map !== undefined){
+      map.markers.forEach(function(marker){
+
+        marker.setMap(null)
+    })
+    }
   }
 }
 

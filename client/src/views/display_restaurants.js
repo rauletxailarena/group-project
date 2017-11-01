@@ -39,10 +39,22 @@ var displayRestaurants = {
     var addressHTML = document.createElement("p")
     var cuisinesHTML = document.createElement("p")
     var menuURL = document.createElement("a")
-    var form = document.createElement("form")
-    var submit = document.createElement("submit")
-    form.appendChild(submit)
 
+
+    var button = document.createElement("button")
+    button.addEventListener("click", function(eventObject){
+      var xhr = new XMLHttpRequest()
+      xhr.open("POST", "http://localhost:3000/api/locations" )
+      xhr.setRequestHeader("Content-Type", "application/json")
+      xhr.addEventListener('load', function(){
+        console.log("Saved object");
+      })
+      console.log(restaurant);
+      // var modelObject = new Restaurant(restaurant)
+      var stringObject = JSON.stringify(restaurant)
+      xhr.send(stringObject);
+    })
+    button.textContent = "Add to my plan";
 
     nameHTML.textContent = restaurant.name;
     addressHTML.textContent = restaurant.address;
@@ -53,6 +65,7 @@ var displayRestaurants = {
     container.appendChild(addressHTML);
     container.appendChild(cuisinesHTML);
     container.appendChild(menuURL);
+    container.appendChild(button)
     mapController.addColourMarker(restaurant, colourMarker, container)
   },
 

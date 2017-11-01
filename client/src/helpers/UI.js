@@ -2,7 +2,7 @@ var displayWelcomeViews = require("../views/display_welcome_view.js");
 var postCodeRequestHelper = require("./post_code_request_helper")
 var weatherRequestHelper = require("./weather_request_helper")
 var restaurantRequestHelper = require("./restaurant_request_helper")
-var eventsHelper = require("./events_helper")
+var eventRequestHelper = require("./event_request_helper")
 var pubDataHelper = require("./pub_data/pub_data_helper.js")
 var favsDataHelper = require("./favs_helper.js")
 var displayWeather = require("../views/display_weather.js")
@@ -10,8 +10,7 @@ var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
 var mapController = require("./map_controller")
 
-
-var Restaurant = require("../models/restaurant.js")
+// var NightOutEvent = require("../models/night_out_event.js")
 
 var UI = function(){
   this.coordinates = {};
@@ -79,18 +78,6 @@ UI.prototype.makeRestaurantsButtonWork = function() {
     restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data){
       console.log(data.restaurants);
       displayRestaurants.renderMarkers(data.restaurants)
-
-      var apiObject = data.restaurants[0]
-      var modelObject = new Restaurant(apiObject)
-      var jsonString = JSON.stringify(modelObject)
-      var jsonObject = JSON.parse(jsonString)
-      // var modeledObject2 = new Restaurant(jsonString)
-      console.log("api object: ", apiObject);
-      console.log("model object: ", modelObject);
-      console.log("json string: ", jsonString);
-      console.log("json object: ", jsonObject);
-      // console.log("modeledObject2: ", modeledObject2);
-
       console.log("render markers called");
     }.bind(this))
   }.bind(this))
@@ -99,18 +86,19 @@ UI.prototype.makeRestaurantsButtonWork = function() {
 UI.prototype.makeEventsButtonWork = function() {
   var button = document.getElementById("events-button")
 
-
   button.addEventListener("click", function(){
-    eventsHelper.getRequest( function (data){
-      var lat = this.coordinates.lat;
-      var lng = this.coordinates.lng;
-      
+    var lat = this.coordinates.lat
+    var lng = this.coordinates.lng
+    var radiusInMiles = 2
+    var daysAhead = 1
+    eventRequestHelper.getEventsByCoords(lat, lng, radiusInMiles, daysAhead, function (data){
+      console.log("All events", data)
+      // var theEventObject = data[0]
+      // var theEventModelledObject = new NightOutEvent(theEventObject)
+      // console.log("First event as returned object", theEventObject)
+      // console.log("First event as model object", theEventModelledObject)
     }.bind(this))
   }.bind(this))
-}
-
-UI.prototype.makeFavouritesButtonWork = function(){
-
 }
 
 UI.prototype.render = function () {

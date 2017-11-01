@@ -10,6 +10,9 @@ var displayRestaurants = require("../views/display_restaurants.js")
 var displayPubs = require("../views/display_pubs.js")
 var mapController = require("./map_controller")
 
+
+var Restaurant = require("../models/restaurant.js")
+
 var UI = function(){
   this.coordinates = {};
 }
@@ -76,6 +79,18 @@ UI.prototype.makeRestaurantsButtonWork = function() {
     restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data){
       console.log(data.restaurants);
       displayRestaurants.renderMarkers(data.restaurants)
+
+      var apiObject = data.restaurants[0]
+      var modelObject = new Restaurant(apiObject)
+      var jsonString = JSON.stringify(modelObject)
+      var jsonObject = JSON.parse(jsonString)
+      var modeledObject2 = new Restaurant(jsonString)
+      console.log("api object: ", apiObject);
+      console.log("model object: ", modelObject);
+      console.log("json string: ", jsonString);
+      console.log("json object: ", jsonObject);
+      console.log("modeledObject2: ", modeledObject2);
+
       console.log("render markers called");
     }.bind(this))
   }.bind(this))
@@ -91,6 +106,10 @@ UI.prototype.makeEventsButtonWork = function() {
       console.log("All events", data)
     }.bind(this))
   }.bind(this))
+}
+
+UI.prototype.makeFavouritesButtonWork = function(){
+
 }
 
 UI.prototype.render = function () {

@@ -1,4 +1,5 @@
 var mapController = require("../helpers/map_controller.js")
+var Pub = require("../models/pub.js")
 
 
 var displayPubs = {
@@ -35,6 +36,25 @@ var displayPubs = {
     var nameHTML = document.createElement("h3")
     var addressHTML = document.createElement("p")
     var postcodeHTML = document.createElement("p")
+    // var form = document.createElement("form")
+    // form.action = "http://localhost:3000/api/locations";
+    // form.method = "post";
+    var button = document.createElement("button")
+    button.addEventListener("click", function(eventObject){
+      console.log("button clicked", pub);
+      var xhr = new XMLHttpRequest()
+      xhr.open("POST", "http://localhost:3000/api/locations" )
+      xhr.setRequestHeader("Content-Type", "application/json")
+      xhr.addEventListener('load', function(){
+        console.log("Saved object");
+      })
+      var modelObject = new Pub(pub)
+      var stringObject = JSON.stringify(modelObject)
+      console.log(stringObject);
+      xhr.send(stringObject);
+    })
+    button.value = "Test button"
+    // form.appendChild(button);
 
     nameHTML.textContent = pub.name;
     addressHTML.textContent = pub.address;
@@ -43,6 +63,8 @@ var displayPubs = {
     container.appendChild(nameHTML);
     container.appendChild(addressHTML);
     container.appendChild(postcodeHTML);
+    container.appendChild(button)
+    // container.appendChild(form)
 
     mapController.addColourMarker(pub, colourMarker, container)
   },

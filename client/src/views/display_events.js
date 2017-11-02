@@ -1,6 +1,7 @@
 var mapController = require("../helpers/map_controller.js")
 var requestHelper = require("../helpers/request_helper.js")
 var NightOutEvent = require("../models/night_out_event.js")
+
 var displayEvents = {
 
   renderMarker: function(nightOutEvent) {
@@ -30,7 +31,7 @@ var displayEvents = {
       saveButton.addEventListener("click", function(eventObject){
         var url = "http://localhost:3000/api/locations"
         var callback = function(postResponseData){
-          console.log("Saved Night Out Event, with response:", postResponseData)
+          console.log("Saved event, with response:", postResponseData)
         }
         var payload = nightOutEvent
         requestHelper.postRequest(url, callback, payload)
@@ -45,7 +46,7 @@ var displayEvents = {
       deleteButton.addEventListener("click", function(eventObject){
         var url = "http://localhost:3000/api/locations" + "/" + mongoId
         var callback = function(postResponseData){
-          console.log("Deleted Night Out Event, with response:", postResponseData)
+          console.log("Deleted event, with response:", postResponseData)
         }
         requestHelper.deleteRequest(url, callback)
       })

@@ -65,6 +65,21 @@ var displayRestaurants = {
       container.appendChild(saveButton)
     }
 
+
+    if (restaurant.canRemove()) {
+      var mongoId = restaurant["_id"]
+      var deleteButton = document.createElement("button")
+      deleteButton.addEventListener("click", function(eventObject){
+        var url = "http://localhost:3000/api/locations" + "/" + mongoId
+        var callback = function(postResponseData){
+          console.log("Deleted restaurant, with response:", postResponseData)
+        }
+        requestHelper.deleteRequest(url, callback)
+      })
+      deleteButton.textContent = "Remove from my plan";
+      container.appendChild(deleteButton)
+    }
+
     mapController.addColourMarker(restaurant, colourMarker, container)
   },
 

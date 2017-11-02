@@ -31,7 +31,7 @@ var displayPubs = {
   },
 
   renderMarker: function(pub) {
-    console.log("Render marker on a pub")
+    // console.log("Render marker on a pub")
     var colourMarker = "public/markers/a_yellow_pub_marker.png"
     // create info window for the element
     var container = document.createElement("div")

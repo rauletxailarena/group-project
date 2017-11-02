@@ -19,25 +19,25 @@ var displayEvents = {
     postcodeHTML.textContent = event.postcode;
     // tagsHTML.textContent = event.tags;
 
-    var button = document.createElement("button")
-    button.addEventListener("click", function(eventObject){
-      var url = "http://localhost:3000/api/locations"
-      var callback = function(postResponseData){
-        console.log("Saved event, with response:", postResponseData)
-      }
-      var payload = event
-      requestHelper.postRequest(url, callback, payload)
-    })
-    button.textContent = "Add to my plan";
-    
     container.appendChild(nameHTML);
     container.appendChild(descriptionHTML);
     container.appendChild(venueHTML);
     // container.appendChild(tagsHTML);
     container.appendChild(postcodeHTML);
-    container.appendChild(button);
 
-
+    if (event.canAdd()) {
+      var saveButton = document.createElement("button")
+      saveButton.addEventListener("click", function(eventObject){
+        var url = "http://localhost:3000/api/locations"
+        var callback = function(postResponseData){
+          console.log("Saved event, with response:", postResponseData)
+        }
+        var payload = event
+        requestHelper.postRequest(url, callback, payload)
+      })
+      saveButton.textContent = "Add to my plan";
+      container.appendChild(saveButton);
+    }
 
     mapController.addColourMarker(event, colourMarker, container)
   },

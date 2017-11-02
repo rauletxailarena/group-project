@@ -39,19 +39,30 @@ var displayPubs = {
     var addressHTML = document.createElement("p")
     var postcodeHTML = document.createElement("p")
 
-    var saveButton = document.createElement("button")
-    saveButton.addEventListener("click", function(eventObject){
-      var url = "http://localhost:3000/api/locations"
-      var callback = function(postResponseData){
-        console.log("Saved pub, with response:", postResponseData)
-      }
-      var payload = pub
-      requestHelper.postRequest(url, callback, payload)
-    })
-    saveButton.textContent = "Add to my plan";
+    nameHTML.textContent = pub.name;
+    addressHTML.textContent = pub.address;
+    postcodeHTML.textContent = pub.postcode;
 
-    var mongoId = pub["_id"]
-    if (mongoId) {
+    container.appendChild(nameHTML);
+    container.appendChild(addressHTML);
+    container.appendChild(postcodeHTML);
+
+    if (pub.canAdd()) {
+      var saveButton = document.createElement("button")
+      saveButton.addEventListener("click", function(eventObject){
+        var url = "http://localhost:3000/api/locations"
+        var callback = function(postResponseData){
+          console.log("Saved pub, with response:", postResponseData)
+        }
+        var payload = pub
+        requestHelper.postRequest(url, callback, payload)
+      })
+      saveButton.textContent = "Add to my plan";
+      container.appendChild(saveButton)
+    }
+
+    if (pub.canRemove()) {
+      var mongoId = pub["_id"]
       var deleteButton = document.createElement("button")
       deleteButton.addEventListener("click", function(eventObject){
         var url = "http://localhost:3000/api/locations" + "/" + mongoId
@@ -61,20 +72,8 @@ var displayPubs = {
         requestHelper.deleteRequest(url, callback)
       })
       deleteButton.textContent = "Remove from my plan";
-    }
-
-    nameHTML.textContent = pub.name;
-    addressHTML.textContent = pub.address;
-    postcodeHTML.textContent = pub.postcode;
-
-    container.appendChild(nameHTML);
-    container.appendChild(addressHTML);
-    container.appendChild(postcodeHTML);
-    container.appendChild(saveButton)
-    if (mongoId) {
       container.appendChild(deleteButton)
     }
-    // container.appendChild(form)
 
     mapController.addColourMarker(pub, colourMarker, container)
   },

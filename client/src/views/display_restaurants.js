@@ -41,17 +41,6 @@ var displayRestaurants = {
     var cuisinesHTML = document.createElement("p")
     var menuURL = document.createElement("a")
 
-    var button = document.createElement("button")
-    button.addEventListener("click", function(eventObject){
-      var url = "http://localhost:3000/api/locations"
-      var callback = function(postResponseData){
-        console.log("Saved restaurant, with response:", postResponseData)
-      }
-      var payload = restaurant
-      requestHelper.postRequest(url, callback, payload)
-    })
-    button.textContent = "Add to my plan";
-    
     nameHTML.textContent = restaurant.name;
     addressHTML.textContent = restaurant.address;
     cuisinesHTML.textContent = restaurant.cuisines;
@@ -61,7 +50,21 @@ var displayRestaurants = {
     container.appendChild(addressHTML);
     container.appendChild(cuisinesHTML);
     container.appendChild(menuURL);
-    container.appendChild(button)
+
+    if (restaurant.canAdd()) {
+      var saveButton = document.createElement("button")
+      saveButton.addEventListener("click", function(eventObject){
+        var url = "http://localhost:3000/api/locations"
+        var callback = function(postResponseData){
+          console.log("Saved restaurant, with response:", postResponseData)
+        }
+        var payload = restaurant
+        requestHelper.postRequest(url, callback, payload)
+      })
+      saveButton.textContent = "Add to my plan";
+      container.appendChild(saveButton)
+    }
+
     mapController.addColourMarker(restaurant, colourMarker, container)
   },
 

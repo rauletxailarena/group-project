@@ -37,19 +37,19 @@ describe('Pub', function(){
     assert.strictEqual(-89.911, thePub.longitude)
   })
 
-  it('can be added', function(){
+  it('can be added if unsaved', function(){
     assert.strictEqual(true, thePub.canAdd())
   })
 
-  it('can not be removed', function(){
+  it('can not be removed if unsaved', function(){
     assert.strictEqual(false, thePub.canRemove())
   })
 
-  it('can not be added after _id set', function(){
+  it('can not be added if saved', function(){
     assert.strictEqual(false, theSavedPub.canAdd())
   })
 
-  it('can be removed after _id set', function(){
+  it('can be removed if saved', function(){
     assert.strictEqual(true, theSavedPub.canRemove())
   })
 })

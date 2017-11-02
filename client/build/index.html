@@ -28,15 +28,19 @@
       </div>
       <div class= "flex-box-element">
         <input type="text" id="welcome-input" style="text-transform:uppercase" placeholder="Enter postcode">
-        <button id="welcome-input-button">SUBMIT</button>
+        <button id="welcome-input-button">What's near me?</button>
       </div>
     </div>
 
     <div id="map-and-weather" class="hide-at-welcome">
 
       <div id="map"></div>
+
       <div id="weather-and-buttons">
         <div id="weather-info-container">
+          <div class="weather-row">
+            <h3 id="weather-title">My Current Weather:</h3>
+          </div>
           <div class="weather-row">
             <div>
               <img src="public/sun.png" alt="">
@@ -59,7 +63,8 @@
           </div>
         </div>
 
-        <p id="show-me-text">Show me...</p>
+        <p id="show-me-text">Click icons to see info</p>
+
 
         <div id="filter-options">
           <img type="button" id="pubs-button" src="public/pub.png" alt="Submit"></img>
@@ -67,8 +72,11 @@
           <img type="button" id="events-button" src="public/events.png" alt="Submit"></img>
           <img type="button" id="favorites-button" src="public/saved_list.png" alt="Submit"></img>
         </div>
+
       </div>
+
     </div>
+
 
 
 
@@ -83,7 +91,7 @@
   </div>
 
 
-  <footer>
+  <footer class="hide-at-welcome">
 
     <div id="social-media-icons">
       <a href=https://www.facebook.com/><img id="icon" src="facebook_icon.png" alt="facebook"></a>

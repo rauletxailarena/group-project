@@ -94,6 +94,11 @@ html{
   margin: 5px 0px 5px 0px;
 }
 
+#weather-title{
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
 .weather-row div {
   flex: 1;
 }
@@ -120,7 +125,7 @@ html{
   -moz-border-radius: 21;
   border-radius: 8px;
   color: #f8f6ee ;
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 10px 20px 10px 20px;
   border: solid #000000 1px;
   text-decoration: none;
@@ -207,9 +212,10 @@ a:active{
 }
 
 #show-me-text{
-  font-size: 2.5em;
+  font-size: 1.6em;
   margin-bottom: 20px;
   margin-top: 20px;
+  font-weight: bold;
 }
 
 #welcome-views{

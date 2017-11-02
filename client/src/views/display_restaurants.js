@@ -40,10 +40,11 @@ var displayRestaurants = {
     var addressHTML = document.createElement("p")
     var cuisinesHTML = document.createElement("p")
     var menuURL = document.createElement("a")
-    
+
     var button = document.createElement("button")
     button.addEventListener("click", function(eventObject){
       var url = "http://localhost:3000/api/locations"
+      globalMap.closeCurrentInfoWindow();
       var callback = function(postResponseData){
         console.log("Saved restaurant, with response:", postResponseData)
       }

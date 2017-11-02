@@ -1,6 +1,7 @@
 var mapController = require("../helpers/map_controller.js")
 var requestHelper = require("../helpers/request_helper.js")
 var Event = require("../models/night_out_event.js")
+var mapWrapper = require("../helpers/map_wrapper.js")
 var displayEvents = {
 
   renderMarker: function(event) {
@@ -24,6 +25,9 @@ var displayEvents = {
       var url = "http://localhost:3000/api/locations"
       var callback = function(postResponseData){
         console.log("Saved event, with response:", postResponseData)
+        console.log("Map wrapper state", mapWrapper);
+        console.log(globalMap, "globalMap");
+        globalMap.closeCurrentInfoWindow();
       }
       var payload = event
       requestHelper.postRequest(url, callback, payload)

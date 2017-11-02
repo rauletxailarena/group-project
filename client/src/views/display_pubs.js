@@ -41,6 +41,7 @@ var displayPubs = {
     var button = document.createElement("button")
     button.addEventListener("click", function(eventObject){
       var url = "http://localhost:3000/api/locations"
+      globalMap.closeCurrentInfoWindow();
       var callback = function(postResponseData){
         console.log("Saved pub, with response:", postResponseData)
       }

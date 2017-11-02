@@ -10,22 +10,23 @@ var favsHelper = {
   getAllFavs: function(callback){
     // console.log("Favourites helper started")
     var url = "http://localhost:3000/api/locations"
-    requestHelper.getRequest(url, function(arrayOfObjectsFromMongo){
-      // console.log("Favourites helper get request started")
+    requestHelper.getRequest(url, function(data){
+      console.log("Favourites data", data)
       var modelObjectArray = []
-      for (var obj of arrayOfObjectsFromMongo) {
-        switch(obj.type) {
+      for (var mongoStoredObj of data) {
+        switch(mongoStoredObj.type) {
           case "pub":
-            modelObjectArray.push(new Pub(obj))
+            modelObjectArray.push(new Pub(mongoStoredObj))
             break;
           case "restaurant":
-          modelObjectArray.push(new Restaurant(obj))
+          modelObjectArray.push(new Restaurant(mongoStoredObj))
             break;
           case "event":
-          modelObjectArray.push(new NightOutEvent(obj))
+          modelObjectArray.push(new NightOutEvent(mongoStoredObj))
             break;
         }
       }
+      console.log("Models constructed", modelObjectArray)
       callback(modelObjectArray)
     })
   }

@@ -15,7 +15,7 @@ var pubDataHelper = {
     var minLng = lng - radius;
     var maxLng = lng + radius;
 
-    return filteredPubs = this.pubsData.filter(function (pub) {
+    var filteredPubs = this.pubsData.filter(function (pub) {
       return (
         pub.latitude > minLat &&
         pub.latitude < maxLat &&
@@ -23,6 +23,8 @@ var pubDataHelper = {
         pub.longitude < maxLng
       )
     })
+    console.log("Pubs within range", filteredPubs)
+    return filteredPubs
   }
 }
 

@@ -49,9 +49,9 @@ var eventRequestHelper = {
 
     // console.log("Headers", headerArray)
 
-    requestHelper.getRequestWithHeaders(url, headerArray, function(arrayFromEventAPI){
-      // console.log("Events helper get request started")
-      callback(arrayFromEventAPI)
+    requestHelper.getRequestWithHeaders(url, headerArray, function(data){
+      console.log("Events data", data)
+      callback(data)
     })
   }
 

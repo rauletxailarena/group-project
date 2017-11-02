@@ -78,10 +78,8 @@ UI.prototype.makeRestaurantsButtonWork = function() {
     var lat = this.coordinates.lat;
     var lng = this.coordinates.lng;
     restaurantRequestHelper.getRestaurantsByCoords(lat, lng, function(data){
-      console.log(data.restaurants);
       mapController.removeAllMarkers();
       displayRestaurants.renderMarkers(data.restaurants)
-      console.log("render markers called");
     }.bind(this))
   }.bind(this))
 }
@@ -95,13 +93,8 @@ UI.prototype.makeEventsButtonWork = function() {
     var radiusInMiles = 2
     var daysAhead = 1
     eventRequestHelper.getEventsByCoords(lat, lng, radiusInMiles, daysAhead, function (data){
-      console.log("All events", data)
       mapController.removeAllMarkers();
       displayEvents.renderMarkers(data)
-      // var theEventObject = data[0]
-      // var theEventModelledObject = new NightOutEvent(theEventObject)
-      // console.log("First event as returned object", theEventObject)
-      // console.log("First event as model object", theEventModelledObject)
     }.bind(this))
   }.bind(this))
 }
@@ -114,8 +107,6 @@ UI.prototype.makeFavouritesButtonWork = function () {
   var button = document.getElementById("favorites-button")
   button.addEventListener("click", function(){
     var favsList = favsDataHelper.getAllFavs(function(modelObjectArray){
-      console.log("Make favourites callback returned, with model objects:", modelObjectArray)
-      // var listOfObjects = displayHelper.recreateItems(modelObjectArray)
       mapController.removeAllMarkers()
       displayHelper.renderItems(modelObjectArray)
     }.bind(this))

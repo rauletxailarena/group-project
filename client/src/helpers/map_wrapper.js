@@ -87,6 +87,7 @@ var MapWrapper = function (container, coords, zoom) {
   this.bounceMarkers = this.bounceMarkers.bind(this);
   this.geolocate = this.geolocate.bind(this);
   this.moveMapToCurrentLocation = this.moveMapToCurrentLocation.bind(this);
+  this.currentInfoWindow;
 }
 
 MapWrapper.prototype.addMarker = function (coords, markerIcon, infoWindowContent) {
@@ -96,17 +97,24 @@ MapWrapper.prototype.addMarker = function (coords, markerIcon, infoWindowContent
     icon: markerIcon
   });
   if (infoWindowContent) {
-    var infoWindow = new google.maps.InfoWindow({
-      content: infoWindowContent
-    });
     // our marker has an addListener method we can use instead of google.maps.event.addListener
     marker.addListener('click', function () {
-      infoWindow.open(marker.map, marker);
-    })
+      if (this.currentInfoWindow){
+        this.currentInfoWindow.close();
+      }
+      this.currentInfoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent
+      });
+      this.currentInfoWindow.open(marker.map, marker);
+    }.bind(this))
   }
 
   this.markers.push(marker);
 
+}
+
+MapWrapper.prototype.closeCurrentInfoWindow = function(){
+  this.currentInfoWindow.close()
 }
 
 MapWrapper.prototype.addClickEvent = function () {

@@ -44,19 +44,19 @@ describe('Restaurant', function(){
     assert.strictEqual(54.21, theRestaurant.longitude)
   })
 
-  it('can be added', function(){
+  it('can be added if unsaved', function(){
     assert.strictEqual(true, theRestaurant.canAdd())
   })
 
-  it('can not be removed', function(){
+  it('can not be removed if unsaved', function(){
     assert.strictEqual(false, theRestaurant.canRemove())
   })
 
-  it('can not be added after _id set', function(){
+  it('can not be added if saved', function(){
     assert.strictEqual(false, theSavedRestaurant.canAdd())
   })
 
-  it('can be removed after _id set', function(){
+  it('can be removed if saved', function(){
     assert.strictEqual(true, theSavedRestaurant.canRemove())
   })
 })

@@ -51,12 +51,9 @@ var displayPubs = {
     saveButton.textContent = "Add to my plan";
 
     var mongoId = pub["_id"]
-    console.log("Mongo ID", mongoId, pub)
     if (mongoId) {
-      console.log("Delete is available")
       var deleteButton = document.createElement("button")
       deleteButton.addEventListener("click", function(eventObject){
-        console.log("Delete button clicked")
         var url = "http://localhost:3000/api/locations" + "/" + mongoId
         var callback = function(postResponseData){
           console.log("Deleted pub, with response:", postResponseData)

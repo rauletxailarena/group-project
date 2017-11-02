@@ -4,6 +4,7 @@ var assert = require('assert')
 describe('NightOutEvent', function(){
   var theMockApiObject
   var theEvent
+  var theSavedEvent
 
   beforeEach(function(){
     theMockApiObject = {}
@@ -17,6 +18,8 @@ describe('NightOutEvent', function(){
     theMockApiObject.schedules[0].place.postal_code = "Test postcode"
     theMockApiObject.schedules[0].place.name = "Test venue"
     theEvent = new NightOutEvent(theMockApiObject)
+    theMockApiObject._id = "Dummy ID from Mongo"
+    theSavedEvent = new NightOutEvent(theMockApiObject)
   })
 
   it('has a name', function(){
@@ -45,6 +48,22 @@ describe('NightOutEvent', function(){
 
   it('has a postcode', function(){
     assert.strictEqual('Test postcode', theEvent.postcode)
+  })
+
+  it('can be added', function(){
+    assert.strictEqual(true, theEvent.canAdd())
+  })
+
+  it('can not be removed', function(){
+    assert.strictEqual(false, theEvent.canRemove())
+  })
+
+  it('can not be added after _id set', function(){
+    assert.strictEqual(false, theSavedEvent.canAdd())
+  })
+
+  it('can be removed after _id set', function(){
+    assert.strictEqual(true, theSavedEvent.canRemove())
   })
 
 })

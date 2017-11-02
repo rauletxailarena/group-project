@@ -26,4 +26,12 @@ var Restaurant = function(input_object) {
   }
 }
 
+Restaurant.prototype.canAdd = function() {
+  return (this._id === null)
+}
+
+Restaurant.prototype.canRemove = function() {
+  return (!this.canAdd())
+}
+
 module.exports = Restaurant

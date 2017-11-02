@@ -13,6 +13,8 @@ describe('Pub', function(){
     theMockApiObject.latitude = 0.12457
     theMockApiObject.longitude = -89.9110
     thePub = new Pub(theMockApiObject)
+    theMockApiObject._id = "Dummy ID from Mongo"
+    theSavedPub = new Pub(theMockApiObject)
   })
 
   it('has a name', function(){
@@ -35,4 +37,19 @@ describe('Pub', function(){
     assert.strictEqual(-89.911, thePub.longitude)
   })
 
+  it('can be added', function(){
+    assert.strictEqual(true, thePub.canAdd())
+  })
+
+  it('can not be removed', function(){
+    assert.strictEqual(false, thePub.canRemove())
+  })
+
+  it('can not be added after _id set', function(){
+    assert.strictEqual(false, theSavedPub.canAdd())
+  })
+
+  it('can be removed after _id set', function(){
+    assert.strictEqual(true, theSavedPub.canRemove())
+  })
 })

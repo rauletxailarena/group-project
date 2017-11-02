@@ -31,8 +31,14 @@ var NightOutEvent = function(input_object) {
   }
 }
 
-// NightOutEvent.prototype.methodName = function() {
-//   return null
-// }
+NightOutEvent.prototype.canAdd = function() {
+  // The _id is set from Mongo
+  // If its null, it is not already in the Mongo database, and can be added
+  return (this._id === null)
+}
+
+NightOutEvent.prototype.canRemove = function() {
+  return (!this.canAdd())
+}
 
 module.exports = NightOutEvent

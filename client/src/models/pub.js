@@ -22,4 +22,12 @@ var Pub = function(input_object) {
   }
 }
 
+Pub.prototype.canAdd = function() {
+  return (this._id === null)
+}
+
+Pub.prototype.canRemove = function() {
+  return (!this.canAdd())
+}
+
 module.exports = Pub

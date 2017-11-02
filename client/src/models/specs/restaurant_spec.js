@@ -16,6 +16,8 @@ describe('Restaurant', function(){
     theMockApiObject.restaurant.location.latitude = 78.1234
     theMockApiObject.restaurant.location.longitude = 54.21
     theRestaurant = new Restaurant(theMockApiObject)
+    theMockApiObject._id ="Dummy ID from Mongo"
+    theSavedRestaurant = new Restaurant(theMockApiObject)
   })
 
   it('has a name', function(){
@@ -42,4 +44,19 @@ describe('Restaurant', function(){
     assert.strictEqual(54.21, theRestaurant.longitude)
   })
 
+  it('can be added', function(){
+    assert.strictEqual(true, theRestaurant.canAdd())
+  })
+
+  it('can not be removed', function(){
+    assert.strictEqual(false, theRestaurant.canRemove())
+  })
+
+  it('can not be added after _id set', function(){
+    assert.strictEqual(false, theSavedRestaurant.canAdd())
+  })
+
+  it('can be removed after _id set', function(){
+    assert.strictEqual(true, theSavedRestaurant.canRemove())
+  })
 })

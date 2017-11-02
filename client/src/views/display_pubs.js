@@ -50,6 +50,7 @@ var displayPubs = {
     if (pub.canAdd()) {
       var saveButton = document.createElement("button")
       saveButton.addEventListener("click", function(eventObject){
+        globalMap.closeCurrentInfoWindow()
         var url = "http://localhost:3000/api/locations"
         var callback = function(postResponseData){
           console.log("Saved pub, with response:", postResponseData)
@@ -65,6 +66,7 @@ var displayPubs = {
       var mongoId = pub["_id"]
       var deleteButton = document.createElement("button")
       deleteButton.addEventListener("click", function(eventObject){
+        globalMap.closeCurrentInfoWindow()
         var url = "http://localhost:3000/api/locations" + "/" + mongoId
         var callback = function(postResponseData){
           console.log("Deleted pub, with response:", postResponseData)

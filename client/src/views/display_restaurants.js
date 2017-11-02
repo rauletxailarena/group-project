@@ -54,6 +54,7 @@ var displayRestaurants = {
     if (restaurant.canAdd()) {
       var saveButton = document.createElement("button")
       saveButton.addEventListener("click", function(eventObject){
+        globalMap.closeCurrentInfoWindow()
         var url = "http://localhost:3000/api/locations"
         var callback = function(postResponseData){
           console.log("Saved restaurant, with response:", postResponseData)
@@ -70,6 +71,7 @@ var displayRestaurants = {
       var mongoId = restaurant["_id"]
       var deleteButton = document.createElement("button")
       deleteButton.addEventListener("click", function(eventObject){
+        globalMap.closeCurrentInfoWindow()
         var url = "http://localhost:3000/api/locations" + "/" + mongoId
         var callback = function(postResponseData){
           console.log("Deleted restaurant, with response:", postResponseData)

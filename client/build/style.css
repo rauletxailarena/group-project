@@ -257,3 +257,9 @@ a:active{
 body{
   height: 100%;
 }
+
+#team-name{
+  text-align: center;
+  padding-top: 100px;
+  font-size: 0.75em;
+}

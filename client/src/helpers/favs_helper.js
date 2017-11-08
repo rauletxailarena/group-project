@@ -9,7 +9,7 @@ var favsHelper = {
 
   getAllFavs: function(callback){
     // console.log("Favourites helper started")
-    var url = "http://localhost:3000/api/locations"
+    var url = "https://fierce-castle-94635.herokuapp.com/api/locations"
     requestHelper.getRequest(url, function(data){
       console.log("Favourites data", data)
       var modelObjectArray = []

@@ -55,7 +55,7 @@ var displayRestaurants = {
       var saveButton = document.createElement("button")
       saveButton.addEventListener("click", function(eventObject){
         globalMap.closeCurrentInfoWindow()
-        var url = "http://localhost:3000/api/locations"
+        var url = "https://fierce-castle-94635.herokuapp.com/api/locations"
         var callback = function(postResponseData){
           console.log("Saved restaurant, with response:", postResponseData)
         }
@@ -72,7 +72,7 @@ var displayRestaurants = {
       var deleteButton = document.createElement("button")
       deleteButton.addEventListener("click", function(eventObject){
         globalMap.closeCurrentInfoWindow()
-        var url = "http://localhost:3000/api/locations" + "/" + mongoId
+        var url = "https://fierce-castle-94635.herokuapp.com/api/locations" + "/" + mongoId
         var callback = function(postResponseData){
           console.log("Deleted restaurant, with response:", postResponseData)
         }
